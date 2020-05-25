@@ -1,0 +1,108 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/theme_color_code">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:tint="@color/color_white"
+            android:padding="15dp"
+            android:src="@drawable/ic_back_arror_icon" />
+
+        <EditText
+            android:id="@+id/edt_q"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Video"
+            android:layout_toLeftOf="@id/submit"
+            android:layout_toRightOf="@+id/back_btn"
+            android:gravity="center_vertical"
+            android:textColorHint="@color/color_white"
+            android:textSize="20dp"
+            android:textColor="@color/color_white"
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:text="Submit"
+            android:padding="8sp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="end"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            android:background="@mipmap/bg_img_card"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/video_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@android:color/black">
+
+        <VideoView
+            android:id="@+id/vdVw"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@android:color/transparent"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:layout_gravity="center" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerInParent="true" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/player_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/start"
+            android:layout_margin="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@color/status_bar_blue"
+            android:gravity="center"
+            android:text="start" />
+
+        <TextView
+            android:id="@+id/introduction"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="this is video introduciton ......"
+            android:background="@color/colorGrey" />
+
+    </LinearLayout>
+
+</LinearLayout>

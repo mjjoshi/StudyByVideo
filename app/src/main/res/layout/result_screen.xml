@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorGrey"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/theme_color_code" >
+
+        <ImageView
+            android:id="@+id/imgBtnProfileBack"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/_15sdp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_back_arror_icon" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imgBtnProfileBack"
+            android:layout_toRightOf="@+id/imgBtnProfileBack"
+            android:layout_weight="1"
+            android:text="Result"
+            android:padding="5dp"
+            android:textColor="@color/color_white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="80sp"
+        android:src="@drawable/ic_correct"
+        android:layout_gravity="center"
+        android:layout_margin="7sp"
+        android:layout_height="80sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_gravity="top"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="Your quiz has been submitted!"
+        android:textColor="@color/black"
+        android:layout_marginTop="10sp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/txt_test_name"
+        android:layout_width="match_parent"
+        android:layout_gravity="top"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="Test Name"
+        android:textColor="@color/black"
+        android:layout_marginTop="10sp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_gravity="top"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="Score Card"
+        android:textColor="@color/black"
+        android:layout_marginTop="10sp"
+        android:layout_height="wrap_content" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="10sp"
+        android:elevation="10sp"
+        app:cardBackgroundColor="@color/color_white"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="10sp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/llmain"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10sp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#000"
+                    android:text="Total No. of Questions : "
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_total_no_q"
+                    android:layout_width="wrap_content"
+                    android:textColor="#000"
+                    android:text="200 "
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10sp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#000"
+                    android:text="Score : "
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_score"
+                    android:layout_width="wrap_content"
+                    android:textColor="#000"
+                    android:text="200 "
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10sp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#000"
+                    android:text="Correct Answer : "
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_attempt_count"
+                    android:layout_width="wrap_content"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="20sp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10sp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#000"
+                    android:text="Wrong Answer : "
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_wrong_count"
+                    android:layout_width="wrap_content"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_negative_marking_info"
+                android:layout_width="wrap_content"
+                android:textColor="#000"
+                android:gravity="center"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/llmain"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginBottom="30sp"
+        android:layout_marginTop="50sp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:text="Start Test"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:background="@drawable/theme_fill_bg"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

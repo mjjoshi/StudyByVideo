@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/theme_color_code">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:clickable="true"
+            android:padding="6dp"
+            android:saveEnabled="true"
+            android:src="@drawable/ic_back_arror_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_30dp"
+            android:layout_toRightOf="@+id/back_btn"
+            android:singleLine="true"
+            android:text="Question Bank"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/_20sdp" />
+
+    </RelativeLayout>
+
+    <com.android.studybyvideo.CustomViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
