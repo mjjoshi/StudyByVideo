@@ -19,7 +19,8 @@
 
 <!--    <color name="app_color">#F15A2E</color>-->
     <color name="secondary_text">#757575</color>
-    <color name="mobile_bg">#283142</color>
+<!--    <color name="mobile_bg">#283142</color>-->
+    <color name="mobile_bg">#196AFF</color>
     <color name="mobile_bg_pressed">#283142</color>
     <color name="black_overlay">#66000000</color>
     <color name="backgroundColor">#3E454F</color>

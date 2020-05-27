@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.android.studybyvideo.ApiClient.ApiClient;
@@ -29,7 +30,7 @@ public class OTPActivity extends AppCompatActivity {
     ApiInterface apiService;
     private String phoneNumber;
     private AppCompatTextView txtMobileNumber;
-    private ImageView imgVerify;
+    private AppCompatButton imgVerify;
 
 
     @Override
