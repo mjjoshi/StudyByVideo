@@ -78,20 +78,19 @@ public class CoursesActivity1 extends AppCompatActivity {
         llContactUs = findViewById(R.id.llContactUs);
         llLogout = findViewById(R.id.llLogout);
 
-        ivReport = findViewById(R.id.ivReport);
-        ivTestSeries = findViewById(R.id.ivTestSeries);
+//        ivReport = findViewById(R.id.ivReport);
+//        ivTestSeries = findViewById(R.id.ivTestSeries);
         ivAboutUs = findViewById(R.id.ivAboutUs);
         ivContactUs = findViewById(R.id.ivContactUs);
         ivLogout = findViewById(R.id.ivLogout);
 
         tvAppVersion.setText(String.format("v%s", BuildConfig.VERSION_NAME));
 
-        ivDrawer.setColorFilter(Color.WHITE);
-        ivReport.setColorFilter(Color.WHITE);
-        ivTestSeries.setColorFilter(Color.WHITE);
-        ivAboutUs.setColorFilter(Color.WHITE);
-        ivContactUs.setColorFilter(Color.WHITE);
-        ivLogout.setColorFilter(Color.WHITE);
+//        ivDrawer.setColorFilter(Color.BLACK);
+//        ivReport.setColorFilter(Color.BLACK);
+//        ivTestSeries.setColorFilter(Color.BLACK);
+//        ivAboutUs.setColorFilter(Color.BLACK);
+//        ivLogout.setColorFilter(Color.BLACK);
 
         ivDrawer.setOnClickListener(view -> {
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

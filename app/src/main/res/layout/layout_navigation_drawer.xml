@@ -18,7 +18,7 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_10dp"
-            android:src="@drawable/ic_computer" />
+            android:src="@drawable/main" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -47,63 +47,63 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/llTestSeries"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/dimen_15dp">
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/llTestSeries"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:paddingLeft="@dimen/dimen_15dp">-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivTestSeries"
-                android:layout_width="@dimen/dimen_30dp"
-                android:layout_height="@dimen/dimen_30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/test_series" />
+        <!--            <androidx.appcompat.widget.AppCompatImageView-->
+        <!--                android:id="@+id/ivTestSeries"-->
+        <!--                android:layout_width="@dimen/dimen_30dp"-->
+        <!--                android:layout_height="@dimen/dimen_30dp"-->
+        <!--                android:layout_gravity="center_vertical"-->
+        <!--                android:src="@drawable/test_series" />-->
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTestSeries"
-                style="@style/textStyleRegular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_10dp"
-                android:text="Test Series" />
+        <!--            <androidx.appcompat.widget.AppCompatTextView-->
+        <!--                android:id="@+id/tvTestSeries"-->
+        <!--                style="@style/textStyleRegular"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginLeft="@dimen/dimen_10dp"-->
+        <!--                android:text="Test Series" />-->
 
-        </LinearLayout>
+        <!--        </LinearLayout>-->
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1dp"
-            android:background="@color/white" />
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="@dimen/dimen_1dp"-->
+        <!--            android:background="@color/white" />-->
 
-        <LinearLayout
-            android:id="@+id/llReport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/dimen_15dp">
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/llReport"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:paddingLeft="@dimen/dimen_15dp">-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivReport"
-                android:layout_width="@dimen/dimen_30dp"
-                android:layout_height="@dimen/dimen_30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/notes" />
+        <!--            <androidx.appcompat.widget.AppCompatImageView-->
+        <!--                android:id="@+id/ivReport"-->
+        <!--                android:layout_width="@dimen/dimen_30dp"-->
+        <!--                android:layout_height="@dimen/dimen_30dp"-->
+        <!--                android:layout_gravity="center_vertical"-->
+        <!--                android:src="@drawable/notes" />-->
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/llsetting1"
-                style="@style/textStyleRegular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_10dp"
-                android:text="Report" />
+        <!--            <androidx.appcompat.widget.AppCompatTextView-->
+        <!--                android:id="@+id/llsetting1"-->
+        <!--                style="@style/textStyleRegular"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginLeft="@dimen/dimen_10dp"-->
+        <!--                android:text="Report" />-->
 
-        </LinearLayout>
+        <!--        </LinearLayout>-->
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1dp"
-            android:background="@color/white" />
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="@dimen/dimen_1dp"-->
+        <!--            android:background="@color/white" />-->
 
         <LinearLayout
             android:id="@+id/llAboutUs"
@@ -134,34 +134,34 @@
             android:layout_height="@dimen/dimen_1dp"
             android:background="@color/white" />
 
-        <LinearLayout
-            android:id="@+id/llContactUs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/dimen_15dp">
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/llContactUs"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:paddingLeft="@dimen/dimen_15dp">-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivContactUs"
-                android:layout_width="@dimen/dimen_30dp"
-                android:layout_height="@dimen/dimen_30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_contacts" />
+        <!--            <androidx.appcompat.widget.AppCompatImageView-->
+        <!--                android:id="@+id/ivContactUs"-->
+        <!--                android:layout_width="@dimen/dimen_30dp"-->
+        <!--                android:layout_height="@dimen/dimen_30dp"-->
+        <!--                android:layout_gravity="center_vertical"-->
+        <!--                android:src="@drawable/ic_contacts" />-->
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/contact_us"
-                style="@style/textStyleRegular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_10dp"
-                android:text="Contact Us" />
+        <!--            <androidx.appcompat.widget.AppCompatTextView-->
+        <!--                android:id="@+id/contact_us"-->
+        <!--                style="@style/textStyleRegular"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginLeft="@dimen/dimen_10dp"-->
+        <!--                android:text="Contact Us" />-->
 
-        </LinearLayout>
+        <!--        </LinearLayout>-->
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1dp"
-            android:background="@color/white" />
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="@dimen/dimen_1dp"-->
+        <!--            android:background="@color/white" />-->
 
         <LinearLayout
             android:id="@+id/llLogout"

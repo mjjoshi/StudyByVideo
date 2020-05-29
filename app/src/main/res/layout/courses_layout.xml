@@ -264,7 +264,9 @@
                 android:textColor="@color/color_white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:tint="@color/color_white"></ImageView>
+                android:tint="@color/color_white">
+
+            </ImageView>
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>
