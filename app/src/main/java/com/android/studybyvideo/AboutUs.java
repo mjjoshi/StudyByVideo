@@ -32,13 +32,13 @@ public class AboutUs extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about_activity);
-        //getSupportActionBar().hide();
+        setContentView(R.layout.about_as_activity);
+
         layout_Progress = findViewById(R.id.layout_Progress);
         imgBtnProfileBack = findViewById(R.id.imgBtnProfileBack);
-        llcontact = findViewById(R.id.llcontact);
+        //llcontact = findViewById(R.id.llcontact);
         txt_des = findViewById(R.id.txt_des);
-        llcontact.setVisibility(View.GONE);
+       // llcontact.setVisibility(View.GONE);
         imgBtnProfileBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
