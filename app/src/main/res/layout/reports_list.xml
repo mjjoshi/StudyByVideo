@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/theme_color_code"
+            android:background="@drawable/gradient"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -48,6 +49,16 @@
             </RelativeLayout>
 
         </LinearLayout>
+
+
+        <include
+            android:id="@+id/layout_Progress"
+            layout="@layout/dilaog_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+
 
         <RelativeLayout
             android:layout_width="match_parent"

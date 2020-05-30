@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -38,12 +39,11 @@
     </RelativeLayout>
 
 
-    <include
-        android:id="@+id/layout_Progress"
-        layout="@layout/dilaog_progress"
-        android:visibility="gone"
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/contactus" />
 
 
     <LinearLayout
@@ -64,7 +64,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
                 android:text="Support Mail : "
-
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -72,6 +71,7 @@
                 android:id="@+id/txt_support_mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autoLink="all"
                 android:fontFamily="@font/regular"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp" />
@@ -96,6 +96,7 @@
                 android:id="@+id/txt_sales_mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autoLink="all"
                 android:fontFamily="@font/regular"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -119,6 +120,7 @@
                 android:id="@+id/txt_contact_mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autoLink="all"
                 android:fontFamily="@font/regular"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -127,28 +129,16 @@
 
     </LinearLayout>
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/txt_des"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:orientation="vertical">
+        android:layout_margin="10dp"
+        android:fontFamily="@font/regular"
+        android:padding="@dimen/_5sdp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/txt_des"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/regular"
-
-            android:textSize="@dimen/_16sdp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/regular"
-            android:textSize="@dimen/_16sdp" />
-
-    </LinearLayout>
 
 </LinearLayout>

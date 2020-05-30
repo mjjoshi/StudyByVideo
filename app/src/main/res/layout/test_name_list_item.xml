@@ -9,7 +9,7 @@
     app:cardElevation="2dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -17,17 +17,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_8dp"
                 android:elevation="@dimen/dimen_5dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:padding="@dimen/dimen_5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="@dimen/dimen_5dp"
-                    android:paddingBottom="@dimen/dimen_5dp">
+                    android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/ivForward"
@@ -35,13 +33,14 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_margin="@dimen/dimen_15dp"
+                        android:layout_margin="@dimen/dimen_10dp"
                         android:clickable="true"
                         android:saveEnabled="true"
                         android:src="@drawable/ic_arrow_forward" />
 
                     <LinearLayout
                         android:id="@+id/llmain"
+                        android:layout_centerVertical="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_toLeftOf="@+id/ivForward"
@@ -55,7 +54,7 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="5dp"
+
                                 android:layout_weight="1.5"
                                 android:background="@color/color_white"
                                 android:orientation="vertical">
@@ -207,7 +206,9 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/lock"></ImageView>
+                android:src="@drawable/lock">
+
+            </ImageView>
         </RelativeLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

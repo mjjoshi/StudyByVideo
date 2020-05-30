@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/gradient">
+
+        <ImageView
+            android:id="@+id/imgBtnProfileBack"
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:clickable="true"
+            android:padding="6dp"
+            android:saveEnabled="true"
+            android:src="@drawable/ic_back_arror_icon" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_30dp"
+            android:layout_toRightOf="@+id/imgBtnProfileBack"
+            android:fontFamily="@font/bold"
+            android:singleLine="true"
+            android:text="About Us"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/_20sdp" />
+
+    </RelativeLayout>
+
+
+    <include
+        android:id="@+id/layout_Progress"
+        layout="@layout/dilaog_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/aboutus" />
+
+
+
+    <TextView
+        android:id="@+id/txt_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="@dimen/_5sdp"
+        android:fontFamily="@font/bold"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+
+</LinearLayout>

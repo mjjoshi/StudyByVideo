@@ -74,7 +74,7 @@
             android:name=".QuestionHistory"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".TestType"
+            android:name=".TestSeriesActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ContactUs"
