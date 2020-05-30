@@ -59,16 +59,18 @@ public class CoursesActivity1 extends AppCompatActivity {
     private TextView txtCourseOffred, txtCoursePurchases;
     private AppCompatTextView tvAppVersion;
     private RecyclerView scheduleListing_elv, offered_recycle;
-    private AppCompatImageView ivDrawer, ivTestSeries, ivReport, ivAboutUs, ivContactUs, ivLogout;
+    private AppCompatImageView ivDrawer, ivTestSeries, ivReport, ivAboutUs, ivContactUs, ivLogout ,topImage;
     private DrawerLayout drawerLayout;
-    private LinearLayout llReport, llTestSeries, llAboutUs, llContactUs, llLogout;
+    private LinearLayout llReport, llTestSeries, llAboutUs, llContactUs, llLogout,linerbottom;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        topImage= findViewById(R.id.topImage);
         layout_Progress = findViewById(R.id.layout_Progress);
         ivDrawer = findViewById(R.id.ivDrawer);
+        linerbottom= findViewById(R.id.linerbottom);
         drawerLayout = findViewById(R.id.drawer_layout_home);
         scheduleListing_elv = findViewById(R.id.scheduleListing_elv);
         offered_recycle = findViewById(R.id.offered_recycle);
@@ -166,6 +168,8 @@ public class CoursesActivity1 extends AppCompatActivity {
                 if (response.body().getResponse().getStatus() == 200) {
                     txtCoursePurchases.setVisibility(View.VISIBLE);
                     txtCourseOffred.setVisibility(View.VISIBLE);
+                    linerbottom.setVisibility(View.VISIBLE);
+                    topImage.setVisibility(View.VISIBLE);
                     PackageInfo pInfo = null;
                     try {
                         pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);

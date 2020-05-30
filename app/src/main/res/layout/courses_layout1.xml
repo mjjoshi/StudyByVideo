@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <include
@@ -14,85 +14,105 @@
     <include
         android:id="@+id/layout_Progress"
         layout="@layout/dilaog_progress"
-        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
-    <LinearLayout
+
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/linerbottom"
-        android:layout_below="@+id/layout_toolbar"
-        android:orientation="vertical">
+        android:layout_below="@+id/layout_toolbar">
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtCoursePurchases"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/topImage"
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:layout_width="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="-10dp"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/dimen_150dp"
+                android:src="@drawable/main" />
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/bold"
-                android:padding="5dp"
-                android:visibility="invisible"
-                android:text="@string/courses_purchased"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical">
 
-            </TextView>
+                <TextView
+                    android:id="@+id/txtCoursePurchases"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
+                    android:padding="5dp"
+                    android:text="@string/courses_purchased"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/scheduleListing_elv"
+                </TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/scheduleListing_elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_5dp"
+                android:orientation="vertical">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <TextView
+                    android:id="@+id/txtCourseOffred"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
+                    android:padding="5dp"
+                    android:text="@string/courses_offerred"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible">
+
+                </TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/offered_recycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_5dp"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_5dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtCourseOffred"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bold"
-                android:padding="5dp"
-                android:visibility="invisible"
-                android:text="@string/courses_offerred"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/offered_recycle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </androidx.recyclerview.widget.RecyclerView>
-        </LinearLayout>
-    </LinearLayout>
-
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:id="@+id/linerbottom"
-        android:background="@color/mobile_bg"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="@dimen/dimen_60dp"
         android:layout_alignParentBottom="true"
+        android:background="@color/mobile_bg"
         android:orientation="horizontal"
         android:weightSum="4">
 
@@ -187,7 +207,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Contact Us"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

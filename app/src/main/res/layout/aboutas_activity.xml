@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="@dimen/_5sdp"
-        android:fontFamily="@font/bold"
+        android:fontFamily="@font/regular"
         android:textColor="@color/black"
         android:textSize="18sp" />
 
