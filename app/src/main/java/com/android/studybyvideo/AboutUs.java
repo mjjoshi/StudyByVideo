@@ -32,7 +32,7 @@ public class AboutUs extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about_as_activity);
+        setContentView(R.layout.aboutas_activity);
 
         layout_Progress = findViewById(R.id.layout_Progress);
         imgBtnProfileBack = findViewById(R.id.imgBtnProfileBack);

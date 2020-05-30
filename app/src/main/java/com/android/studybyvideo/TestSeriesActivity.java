@@ -54,7 +54,7 @@ public class TestSeriesActivity extends AppCompatActivity {
     RecyclerView rec_test_type_name;
     private String teacher_id = "";
     private String mobile = "";
-
+    private View layout_Progress;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,8 @@ public class TestSeriesActivity extends AppCompatActivity {
         scheduleListing_elv = findViewById(R.id.scheduleListing_elv);
         rec_test_type_name = findViewById(R.id.rec_test_type_name);
         address_back = findViewById(R.id.address_back);
+        layout_Progress = findViewById(R.id.layout_Progress);
+
         header = findViewById(R.id.header);
         address_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +82,12 @@ public class TestSeriesActivity extends AppCompatActivity {
 
     private void getScheduleListingData() {
 //        setAdapter();
-        final ProgressDialog progressDialog = new ProgressDialog(TestSeriesActivity.this);
-//        progressDialog.setTitle(getResources().getString(R.string.QuestionHistory));
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = new ProgressDialog(TestSeriesActivity.this);
+////        progressDialog.setTitle(getResources().getString(R.string.QuestionHistory));
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+        layout_Progress.setVisibility(View.VISIBLE);
         Call<ResponseTestType> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getTestTypes(
                 "application/x-www-form-urlencoded",
                 "getTestTypes",
@@ -94,7 +97,8 @@ public class TestSeriesActivity extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ResponseTestType>() {
             @Override
             public void onResponse(Call<ResponseTestType> call, Response<ResponseTestType> response) {
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus() == 200) {
                     data.clear();
                     data = response.body().getResponse().getResult();
@@ -109,7 +113,8 @@ public class TestSeriesActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseTestType> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
             }
         });
     }
@@ -127,11 +132,12 @@ public class TestSeriesActivity extends AppCompatActivity {
 
     private void gettestData(String name) {
 //        setAdapter();
-        final ProgressDialog progressDialog = new ProgressDialog(TestSeriesActivity.this);
-//        progressDialog.setTitle(getResources().getString(R.string.QuestionHistory));
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = new ProgressDialog(TestSeriesActivity.this);
+////        progressDialog.setTitle(getResources().getString(R.string.QuestionHistory));
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+        layout_Progress.setVisibility(View.VISIBLE);
         Call<ResponseTestName> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getTestTypeNames(
                 "application/x-www-form-urlencoded",
                 "getTestTypeNames", name,mobile,teacher_id
@@ -140,7 +146,8 @@ public class TestSeriesActivity extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ResponseTestName>() {
             @Override
             public void onResponse(Call<ResponseTestName> call, Response<ResponseTestName> response) {
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus() == 200) {
                     test_name_list.clear();
                     test_name_list = response.body().getResponse().getResult();
@@ -157,7 +164,8 @@ public class TestSeriesActivity extends AppCompatActivity {
             public void onFailure(Call<ResponseTestName> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
                 rec_test_type_name.setVisibility(View.GONE);
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
             }
         });
     }

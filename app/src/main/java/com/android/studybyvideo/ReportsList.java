@@ -47,7 +47,7 @@ public class ReportsList extends AppCompatActivity {
     String id = "";
     TextView next;
     String client_id;
-
+    private View layout_Progress;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +57,8 @@ public class ReportsList extends AppCompatActivity {
         scheduleListing_elv = findViewById(R.id.scheduleListing_elv);
         address_back = findViewById(R.id.address_back);
         next = findViewById(R.id.next);
+        layout_Progress = findViewById(R.id.layout_Progress);
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,10 +98,12 @@ public class ReportsList extends AppCompatActivity {
 
 
     private void getScheduleListingData(String id) {
-        final ProgressDialog progressDialog = new ProgressDialog(ReportsList.this);
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = new ProgressDialog(ReportsList.this);
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+
+        layout_Progress.setVisibility(View.VISIBLE);
         Call<ResponseReports> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getTestResultList(
                 "application/x-www-form-urlencoded",
                 "getTestResultList",
@@ -109,7 +113,9 @@ public class ReportsList extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ResponseReports>() {
             @Override
             public void onResponse(Call<ResponseReports> call, Response<ResponseReports> response) {
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
+
                 if (response.isSuccessful()) {
                     data.clear();
                     data = response.body().getResponse().getResult();
@@ -124,7 +130,8 @@ public class ReportsList extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseReports> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
             }
         });
     }
@@ -141,13 +148,13 @@ public class ReportsList extends AppCompatActivity {
 
 
     private void submit() {
-        SharedPreferences sharedPreferences
-                = getSharedPreferences("MySharedPref",
-                MODE_PRIVATE);
-        final ProgressDialog progressDialog = new ProgressDialog(ReportsList.this);
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+//        final ProgressDialog progressDialog = new ProgressDialog(ReportsList.this);
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+
+        layout_Progress.setVisibility(View.VISIBLE);
         Call<ResponseSumbit> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).submit(
                 "application/x-www-form-urlencoded",
                 "addAnswerOfQuestion",
@@ -160,7 +167,8 @@ public class ReportsList extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ResponseSumbit>() {
             @Override
             public void onResponse(Call<ResponseSumbit> call, Response<ResponseSumbit> response) {
-                progressDialog.dismiss();
+               // progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus() == 200) {
                     MyApplication.sumbitmodel = response.body().getResponse().getResult();
                     startActivity(new Intent(ReportsList.this, ResultScreen.class));
@@ -170,7 +178,8 @@ public class ReportsList extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseSumbit> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
+                //progressDialog.dismiss();
             }
         });
     }
