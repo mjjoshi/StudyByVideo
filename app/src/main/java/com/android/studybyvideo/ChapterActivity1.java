@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -248,7 +247,7 @@ public class ChapterActivity1 extends AppCompatActivity {
         public class ViewHolder extends RecyclerView.ViewHolder {
             TextView txt_title, tvQuestionBank, txt_Des, tvNotes;
             ImageView image, ivQuestionBank, ivNotes, ivPlay;
-            RelativeLayout lock;
+            ImageView lock;
             LinearLayout llMain;
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -259,7 +258,7 @@ public class ChapterActivity1 extends AppCompatActivity {
                 ivPlay = itemView.findViewById(R.id.ivPlay);
                 ivQuestionBank = itemView.findViewById(R.id.ivQuestionBank);
                 ivNotes = itemView.findViewById(R.id.ivNotes);
-                lock = itemView.findViewById(R.id.lock);
+                lock = itemView.findViewById(R.id.ivLock);
             }
         }
     }
