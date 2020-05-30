@@ -43,6 +43,7 @@ public class ChapterActivity1 extends AppCompatActivity {
     AppCompatSpinner spnr_status;
     LinearLayout llfree, llall;
     TextView txtall, txtfree, header;
+    private View layout_Progress;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class ChapterActivity1 extends AppCompatActivity {
         txtfree = findViewById(R.id.txtfree);
         header = findViewById(R.id.header);
         spnr_status = findViewById(R.id.spnr_status);
+        layout_Progress = findViewById(R.id.layout_Progress);
         header.setText(bookname);
 
         llfree.setOnClickListener(new View.OnClickListener() {
@@ -123,11 +125,13 @@ public class ChapterActivity1 extends AppCompatActivity {
 
 
     private void getScheduleListingData() {
-        final ProgressDialog progressDialog = new ProgressDialog(ChapterActivity1.this);
-//        progressDialog.setTitle(getResources().getString(R.string.text_logging_in));
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = new ProgressDialog(ChapterActivity1.this);
+////        progressDialog.setTitle(getResources().getString(R.string.text_logging_in));
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+
+        layout_Progress.setVisibility(View.VISIBLE);
         Call<ResponseChapter> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getAllChapters(
                 "application/x-www-form-urlencoded",
                 "getAllChapters",
@@ -137,7 +141,8 @@ public class ChapterActivity1 extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ResponseChapter>() {
             @Override
             public void onResponse(Call<ResponseChapter> call, Response<ResponseChapter> response) {
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     data.clear();
                     data = response.body().getResponse().getResult();
@@ -151,7 +156,8 @@ public class ChapterActivity1 extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseChapter> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
             }
         });
     }

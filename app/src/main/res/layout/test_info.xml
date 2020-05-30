@@ -145,7 +145,7 @@
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/theme_fill_bg"
+                android:background="@drawable/gradient_login"
                 android:fontFamily="@font/bold"
                 android:gravity="center"
                 android:paddingLeft="@dimen/dimen_15dp"
