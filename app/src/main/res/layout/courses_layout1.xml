@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <include
@@ -10,14 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" />
 
-
-
     <include
         android:id="@+id/layout_Progress"
         layout="@layout/dilaog_progress"
-        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,11 +38,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
                 android:padding="5dp"
-                android:visibility="invisible"
                 android:text="@string/courses_purchased"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:visibility="invisible">
 
             </TextView>
 
@@ -70,11 +69,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
                 android:padding="5dp"
-                android:visibility="invisible"
                 android:text="@string/courses_offerred"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:visibility="invisible">
 
             </TextView>
 
@@ -90,10 +89,10 @@
 
     <LinearLayout
         android:id="@+id/linerbottom"
-        android:background="@color/mobile_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_60dp"
         android:layout_alignParentBottom="true"
+        android:background="@color/mobile_bg"
         android:orientation="horizontal"
         android:weightSum="4">
 
@@ -188,7 +187,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Contact Us"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

@@ -2,7 +2,6 @@ package com.android.studybyvideo;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -106,7 +105,7 @@ public class CoursesActivity1 extends AppCompatActivity {
 
         llTestSeries.setOnClickListener(view -> {
             closeNavigation();
-            startActivity(new Intent(CoursesActivity1.this, TestType.class));
+            startActivity(new Intent(CoursesActivity1.this, TestSeriesActivity.class));
         });
 
         llAboutUs.setOnClickListener(view -> {

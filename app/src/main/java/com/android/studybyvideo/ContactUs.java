@@ -65,7 +65,7 @@ public class ContactUs extends AppCompatActivity {
                 progressDialog.dismiss();
                 if (response.body().getResponse().getStatus() == 200) {
                     model = response.body().getResponse().getResult().get(0);
-                    txt_des.setText("" + model.getContact_us_text());
+                     txt_des.setText("" + model.getContact_us_text());
                     txt_support_mail.setText("" + model.getSupport_mail());
                     txt_sales_mail.setText("" + model.getSales_mail());
                     txt_contact_mail.setText("" + model.getContact_us());

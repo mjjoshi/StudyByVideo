@@ -80,7 +80,7 @@ public class CoursesActivity extends AppCompatActivity {
         llprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CoursesActivity.this, TestType.class));
+                startActivity(new Intent(CoursesActivity.this, TestSeriesActivity.class));
             }
         });
         llmenu.setOnClickListener(new View.OnClickListener() {
