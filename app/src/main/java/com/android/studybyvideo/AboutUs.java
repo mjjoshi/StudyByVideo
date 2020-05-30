@@ -27,13 +27,14 @@ public class AboutUs extends AppCompatActivity {
     ImageView imgBtnProfileBack;
     LinearLayout llcontact;
     TextView txt_des;
+    private View layout_Progress;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_activity);
         //getSupportActionBar().hide();
-
+        layout_Progress = findViewById(R.id.layout_Progress);
         imgBtnProfileBack = findViewById(R.id.imgBtnProfileBack);
         llcontact = findViewById(R.id.llcontact);
         txt_des = findViewById(R.id.txt_des);
@@ -50,11 +51,13 @@ public class AboutUs extends AppCompatActivity {
     AboutUsData model;
 
     private void getScheduleListingData() {
-        final ProgressDialog progressDialog = new ProgressDialog(AboutUs.this);
-//        progressDialog.setTitle(getResources().getString(R.string.QuestionHistory));
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = new ProgressDialog(AboutUs.this);
+////        progressDialog.setTitle(getResources().getString(R.string.QuestionHistory));
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+
+        layout_Progress.setVisibility(View.VISIBLE);
         Call<ReponseAboutUs> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getSupportDetails(
                 "application/x-www-form-urlencoded",
                 "getSupportDetails"
@@ -63,7 +66,9 @@ public class AboutUs extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ReponseAboutUs>() {
             @Override
             public void onResponse(Call<ReponseAboutUs> call, Response<ReponseAboutUs> response) {
-                progressDialog.dismiss();
+               // progressDialog.dismiss();
+
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus() == 200) {
                     model = response.body().getResponse().getResult().get(0);
                     txt_des.setText("" + model.getAbout_us_text());
@@ -74,7 +79,9 @@ public class AboutUs extends AppCompatActivity {
             @Override
             public void onFailure(Call<ReponseAboutUs> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+
+                layout_Progress.setVisibility(View.GONE);
             }
         });
     }

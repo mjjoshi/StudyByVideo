@@ -14,8 +14,8 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_10dp"
             android:src="@drawable/main" />
@@ -24,11 +24,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
             android:fontFamily="@font/bold"
             android:text="Study By Video"
-            android:textColor="@color/white"
-            android:textSize="18sp">
+            android:textColor="@color/mobile_bg"
+            android:textSize="20sp">
 
         </androidx.appcompat.widget.AppCompatTextView>
 
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/dimen_10dp"
-        android:background="@color/white" />
+        android:background="@color/black" />
 
     <LinearLayout
         android:id="@+id/linea"
@@ -124,6 +124,7 @@
                 style="@style/textStyleRegular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginLeft="@dimen/dimen_10dp"
                 android:text="About Us" />
 
@@ -132,7 +133,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_1dp"
-            android:background="@color/white" />
+            android:background="@color/black" />
 
         <!--        <LinearLayout-->
         <!--            android:id="@+id/llContactUs"-->
@@ -182,6 +183,7 @@
                 style="@style/textStyleRegular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginLeft="@dimen/dimen_10dp"
                 android:text="Log Out" />
 
@@ -190,7 +192,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_1dp"
-            android:background="@color/white" />
+            android:background="@color/black"/>
 
     </LinearLayout>
 

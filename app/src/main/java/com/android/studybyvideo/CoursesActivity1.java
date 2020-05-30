@@ -21,6 +21,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -55,6 +56,8 @@ public class CoursesActivity1 extends AppCompatActivity {
     private String mobile = "";
     private String teacher_id = "";
 
+    private View layout_Progress;
+    private TextView txtCourseOffred, txtCoursePurchases;
     private AppCompatTextView tvAppVersion;
     private RecyclerView scheduleListing_elv, offered_recycle;
     private AppCompatImageView ivDrawer, ivTestSeries, ivReport, ivAboutUs, ivContactUs, ivLogout;
@@ -65,33 +68,25 @@ public class CoursesActivity1 extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-
+        layout_Progress = findViewById(R.id.layout_Progress);
         ivDrawer = findViewById(R.id.ivDrawer);
         drawerLayout = findViewById(R.id.drawer_layout_home);
         scheduleListing_elv = findViewById(R.id.scheduleListing_elv);
         offered_recycle = findViewById(R.id.offered_recycle);
         tvAppVersion = findViewById(R.id.tvAppVersion);
-
+        txtCourseOffred = findViewById(R.id.txtCourseOffred);
+        txtCoursePurchases = findViewById(R.id.txtCoursePurchases);
         llReport = findViewById(R.id.llReport);
         llTestSeries = findViewById(R.id.llTestSeries);
         llAboutUs = findViewById(R.id.llAboutUs);
         llContactUs = findViewById(R.id.llContactUs);
         llLogout = findViewById(R.id.llLogout);
-
-//        ivReport = findViewById(R.id.ivReport);
-//        ivTestSeries = findViewById(R.id.ivTestSeries);
         ivAboutUs = findViewById(R.id.ivAboutUs);
         ivContactUs = findViewById(R.id.ivContactUs);
         ivLogout = findViewById(R.id.ivLogout);
-
         tvAppVersion.setText(String.format("v%s", BuildConfig.VERSION_NAME));
-
-//        ivDrawer.setColorFilter(Color.BLACK);
-//        ivReport.setColorFilter(Color.BLACK);
-//        ivTestSeries.setColorFilter(Color.BLACK);
-//        ivAboutUs.setColorFilter(Color.BLACK);
-//        ivLogout.setColorFilter(Color.BLACK);
-
+        ivAboutUs.setColorFilter(Color.BLACK);
+        ivLogout.setColorFilter(Color.BLACK);
         ivDrawer.setOnClickListener(view -> {
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                 drawerLayout.closeDrawer(GravityCompat.START);
@@ -155,17 +150,23 @@ public class CoursesActivity1 extends AppCompatActivity {
     }
 
     private void getScheduleListingData() {
-        final ProgressDialog progressDialog = new ProgressDialog(CoursesActivity1.this);
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-        Call<ResponseCoursesListModel> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getAllCourses("application/x-www-form-urlencoded", "getAllCourses", mobile,teacher_id);
+
+        layout_Progress.setVisibility(View.VISIBLE);
+//        final ProgressDialog progressDialog = new ProgressDialog(CoursesActivity1.this);
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+        Call<ResponseCoursesListModel> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getAllCourses("application/x-www-form-urlencoded", "getAllCourses", mobile, teacher_id);
 
         scheduleListingCall.enqueue(new Callback<ResponseCoursesListModel>() {
             @Override
             public void onResponse(Call<ResponseCoursesListModel> call, Response<ResponseCoursesListModel> response) {
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus() == 200) {
+                    txtCoursePurchases.setVisibility(View.VISIBLE);
+                    txtCourseOffred.setVisibility(View.VISIBLE);
                     PackageInfo pInfo = null;
                     try {
                         pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -192,7 +193,9 @@ public class CoursesActivity1 extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseCoursesListModel> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                Toast.makeText(CoursesActivity1.this, "SomeThing Went wrong",Toast.LENGTH_LONG).show();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
             }
         });
     }
@@ -226,7 +229,7 @@ public class CoursesActivity1 extends AppCompatActivity {
         if (data.size() > 0) {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(CoursesActivity1.this, LinearLayoutManager.HORIZONTAL, false);
             scheduleListing_elv.setLayoutManager(linearLayoutManager);
-            ScheduleListingAdapter adapter = new ScheduleListingAdapter(this, data,"PURCHASED");
+            ScheduleListingAdapter adapter = new ScheduleListingAdapter(this, data, "PURCHASED");
             scheduleListing_elv.setAdapter(adapter);
 
         }
@@ -238,8 +241,7 @@ public class CoursesActivity1 extends AppCompatActivity {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(CoursesActivity1.this, LinearLayoutManager.HORIZONTAL, false);
 
             offered_recycle.setLayoutManager(linearLayoutManager);
-
-            ScheduleListingAdapter adapter = new ScheduleListingAdapter(this, data1,"OFFERED");
+            ScheduleListingAdapter adapter = new ScheduleListingAdapter(this, data1, "OFFERED");
             offered_recycle.setAdapter(adapter);
 
         }
@@ -253,7 +255,7 @@ public class CoursesActivity1 extends AppCompatActivity {
         FragmentManager fragmentManager;
         String courseType;
 
-        public ScheduleListingAdapter(Context context, List<CoursesPurchasedList> scheduleListingList,String courseType) {
+        public ScheduleListingAdapter(Context context, List<CoursesPurchasedList> scheduleListingList, String courseType) {
             this.context = context;
             this.scheduleListingList = scheduleListingList;
             this.list = scheduleListingList;
@@ -272,14 +274,14 @@ public class CoursesActivity1 extends AppCompatActivity {
         public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
             holder.txt_bookname.setText(scheduleListingList.get(position).getBookName());
             holder.book_des.setText(scheduleListingList.get(position).getBook_Des());
-            if (scheduleListingList.get(position).getPrice()!=null){
-                if (scheduleListingList.get(position).getPrice().equalsIgnoreCase("")&&scheduleListingList.get(position).getPrice().equalsIgnoreCase("null")){
+            if (scheduleListingList.get(position).getPrice() != null) {
+                if (scheduleListingList.get(position).getPrice().equalsIgnoreCase("") && scheduleListingList.get(position).getPrice().equalsIgnoreCase("null")) {
                     holder.price.setVisibility(View.VISIBLE);
-                    holder.price.setText("₹"+scheduleListingList.get(position).getPrice());
-                }else {
+                    holder.price.setText("₹" + scheduleListingList.get(position).getPrice());
+                } else {
                     holder.price.setVisibility(View.GONE);
                 }
-            }else {
+            } else {
                 holder.price.setVisibility(View.GONE);
             }
             holder.llmain.setOnClickListener(new View.OnClickListener() {
@@ -302,7 +304,7 @@ public class CoursesActivity1 extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             LinearLayout llmain, llnotes;
-            TextView txt_bookname, book_des,price;
+            TextView txt_bookname, book_des, price;
             ImageView image;
 
             public ViewHolder(@NonNull View itemView) {

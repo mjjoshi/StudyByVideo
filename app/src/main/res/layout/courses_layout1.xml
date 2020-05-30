@@ -10,6 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" />
 
+
+
+    <include
+        android:id="@+id/layout_Progress"
+        layout="@layout/dilaog_progress"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,11 +34,13 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txtCoursePurchases"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
-                android:padding="10sp"
-                android:text="Courses Purchased"
+                android:padding="5dp"
+                android:visibility="invisible"
+                android:text="@string/courses_purchased"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold">
@@ -40,7 +51,6 @@
                 android:id="@+id/scheduleListing_elv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp">
 
             </androidx.recyclerview.widget.RecyclerView>
@@ -50,16 +60,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimen_5dp"
-            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
             android:layout_marginRight="@dimen/dimen_5dp"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txtCourseOffred"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
-                android:padding="10sp"
-                android:text="Courses Offerred"
+                android:padding="5dp"
+                android:visibility="invisible"
+                android:text="@string/courses_offerred"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold">
@@ -69,9 +81,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/offered_recycle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp">
+                android:layout_height="wrap_content">
 
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
@@ -80,6 +90,7 @@
 
     <LinearLayout
         android:id="@+id/linerbottom"
+        android:background="@color/mobile_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_60dp"
         android:layout_alignParentBottom="true"
@@ -105,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="@color/mobile_bg" />
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
@@ -129,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Test Series"
-                android:textColor="@color/mobile_bg" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -152,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Reports"
-                android:textColor="@color/mobile_bg" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
 
@@ -177,7 +188,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Contact Us"
-                android:textColor="@color/mobile_bg" />
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 

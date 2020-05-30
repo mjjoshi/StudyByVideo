@@ -6,4 +6,6 @@
     <string name="login">LogIn</string>
     <string name="otpmessage"> We will send you OTP on this number</string>
     <string name="verify_otp">Verify OTP</string>
+    <string name="courses_offerred">Courses Offerred</string>
+    <string name="courses_purchased">Courses Purchased</string>
 </resources>
