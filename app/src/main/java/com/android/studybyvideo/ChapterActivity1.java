@@ -19,7 +19,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -184,7 +183,7 @@ public class ChapterActivity1 extends AppCompatActivity {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-            return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.course_list_item1, parent, false));
+            return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.course_list_item2, parent, false));
         }
 
         @Override
@@ -206,6 +205,8 @@ public class ChapterActivity1 extends AppCompatActivity {
             }
             if (data.get(position).getChapter_Image()!=null&&!data.get(position).getChapter_Image().equalsIgnoreCase("")) {
                 Picasso.with(context).load(data.get(position).getChapter_Image()).placeholder(R.drawable.img_default).into(holder.image);
+            }else{
+                holder.image.setImageResource(R.drawable.img_default);
             }
 
             holder.ivQuestionBank.setOnClickListener(new View.OnClickListener() {
@@ -218,7 +219,7 @@ public class ChapterActivity1 extends AppCompatActivity {
                 }
             });
 
-            holder.ivPlay.setOnClickListener(new View.OnClickListener() {
+            holder.llMain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(ChapterActivity1.this, VideoPlayer1.class);
@@ -248,8 +249,10 @@ public class ChapterActivity1 extends AppCompatActivity {
             TextView txt_title, tvQuestionBank, txt_Des, tvNotes;
             ImageView image, ivQuestionBank, ivNotes, ivPlay;
             RelativeLayout lock;
+            LinearLayout llMain;
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
+                llMain = itemView.findViewById(R.id.llMain);
                 txt_title = itemView.findViewById(R.id.txt_title);
                 txt_Des = itemView.findViewById(R.id.txt_des);
                 image = itemView.findViewById(R.id.image);

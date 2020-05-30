@@ -8,10 +8,8 @@
 <!--    <color name="colorPrimaryDark">#F15A2E</color>-->
 <!--    <color name="colorAccent">#F15A2E</color>-->
 
-
-
     <!--    <color name="theme_color_code">#0438fd</color>-->
-    <color name="theme_color_code">#283142</color>
+    <color name="theme_color_code">#196AFF</color>
 
     <color name="theme_color_code_bottom">#283142</color>
 
@@ -26,9 +24,6 @@
     <color name="backgroundColor">#3E454F</color>
 
     <color name="app_color">#283142</color>
-
-
-
 
     <color name="orange_text">#F15A2E</color>
     <color name="status_bar_blue">#F15A2E</color>
@@ -48,4 +43,6 @@
     <color name="green">#008000</color>
     <color name="color_white_trans">#90FFFFFF</color>
     <color name="black_transparent">#90000000</color>
+
+    <color name="golden_star">#FFDF00</color>
 </resources>
