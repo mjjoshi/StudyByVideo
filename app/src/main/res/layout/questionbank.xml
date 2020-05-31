@@ -35,6 +35,15 @@
 
     </RelativeLayout>
 
+
+    <include
+        android:id="@+id/layout_Progress"
+        layout="@layout/dilaog_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
     <com.android.studybyvideo.CustomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"

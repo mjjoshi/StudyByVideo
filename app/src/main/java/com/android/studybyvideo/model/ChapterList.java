@@ -2,7 +2,9 @@ package com.android.studybyvideo.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ChapterList {
+import java.io.Serializable;
+
+public class ChapterList implements Serializable {
     @SerializedName("Chapter_Id")
     private String Chapter_Id;
     @SerializedName("Chapter_Name")

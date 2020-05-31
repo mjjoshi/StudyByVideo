@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.airbnb.lottie.LottieAnimationView;
 import com.android.studybyvideo.ApiClient.ApiClient;
 import com.android.studybyvideo.ApiClient.ApiInterface;
+import com.android.studybyvideo.model.ChapterList;
 import com.android.studybyvideo.model.ResponseVideo;
 import com.google.android.exoplayer2.PlaybackPreparer;
 import com.google.android.exoplayer2.Player;
@@ -45,28 +47,38 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout header;
     private int mSeekPosition;
 
-    private String chapter_id = "";
+    //private String chapter_id = "";
+    private ChapterList chapterData;
     private LottieAnimationView progressBar;
     private ImageView back_btn;
     private PlayerView playerView;
     private SimpleExoPlayer player;
-    private TextView submit;
+    private TextView submit, txt_title, txt_Des;
     private EditText edt_q;
     private AppCompatButton btnAskQuestion;
+    private LinearLayout llQB, llNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.video_player1);
+        setContentView(R.layout.video_player2);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         Intent intent = getIntent();
         back_btn = findViewById(R.id.back_btn);
         submit = findViewById(R.id.submit);
         edt_q = findViewById(R.id.edt_q);
         btnAskQuestion = findViewById(R.id.btnAskQuestion);
+        txt_title = findViewById(R.id.txt_title);
+        txt_Des = findViewById(R.id.txt_des);
+        llQB = findViewById(R.id.llQB);
+        llNotes = findViewById(R.id.llNotes);
         back_btn.setOnClickListener(v -> onBackPressed());
-        chapter_id = intent.getStringExtra("chapter_id");
-
+        //chapter_id = intent.getStringExtra("chapter_id");
+        chapterData = (ChapterList) intent.getSerializableExtra("chapter_id");
+        if(chapterData != null){
+            txt_title.setText(chapterData.getChapter_Name());
+            txt_Des.setText(chapterData.getChapter_des());
+        }
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +109,26 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
                 finish();
             }
         });
+
+        llQB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VideoPlayer1.this, QuestionBank.class);
+                intent.putExtra("chapter_id", chapterData.getChapter_Id());
+                intent.putExtra("book_id", chapterData.getBookID());
+                startActivity(intent);
+            }
+        });
+
+        llNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VideoPlayer1.this, FindPeopleFragment.class);
+                intent.putExtra("url", chapterData.getChapterNotes());
+                intent.putExtra("HEADER", chapterData.getChapter_Name());
+                startActivity(intent);
+            }
+        });
         getVideoOfChapter();
     }
 
@@ -121,7 +153,7 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         progressBar.setVisibility(View.VISIBLE);
         Call<ResponseBody> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).addQuestionByStudent("application/x-www-form-urlencoded", "addQuestionByStudent",
-                sharedPreferences.getString("client_id", ""), edt_qtxt, chapter_id);
+                sharedPreferences.getString("client_id", ""), edt_qtxt, chapterData.getChapter_Id());
         scheduleListingCall.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -142,7 +174,7 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
 
     private void getVideoOfChapter() {
         progressBar.setVisibility(View.VISIBLE);
-        Call<ResponseVideo> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getVideoOfChapter("application/x-www-form-urlencoded", "getVideoOfChapter", chapter_id);
+        Call<ResponseVideo> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getVideoOfChapter("application/x-www-form-urlencoded", "getVideoOfChapter", chapterData.getChapter_Id());
         scheduleListingCall.enqueue(new Callback<ResponseVideo>() {
             @Override
             public void onResponse(Call<ResponseVideo> call, Response<ResponseVideo> response) {

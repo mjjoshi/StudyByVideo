@@ -148,17 +148,14 @@ public class QuestionTestSeries extends AppCompatActivity {
             }
         });
 
-        ll_option1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addAnswerOfQuestion(current_pos,questionlist.get(current_pos),"A","ATTEMPTED",chapter_id);
+        ll_option1.setOnClickListener(view -> {
+            addAnswerOfQuestion(current_pos,questionlist.get(current_pos),"A","ATTEMPTED",chapter_id);
 
-                if (current_pos != questionlist.size() - 1) {
-                    current_pos++;
-                    setdata(questionlist.get(current_pos), current_pos);
-                }
-
+            if (current_pos != questionlist.size() - 1) {
+                current_pos++;
+                setdata(questionlist.get(current_pos), current_pos);
             }
+
         });
         ll_option2.setOnClickListener(new View.OnClickListener() {
             @Override

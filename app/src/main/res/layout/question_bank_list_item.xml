@@ -261,7 +261,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:background="@color/status_bar_blue"
+            android:background="@color/mobile_bg"
             android:text="SKIP"
             android:textStyle="bold"
             android:gravity="center"
@@ -285,7 +285,7 @@
             android:id="@+id/nextTxt"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:background="@color/status_bar_blue"
+            android:background="@color/mobile_bg"
             android:text="NEXT"
             android:textStyle="bold"
             android:gravity="center"

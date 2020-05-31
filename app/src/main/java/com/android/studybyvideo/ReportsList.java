@@ -115,7 +115,6 @@ public class ReportsList extends AppCompatActivity {
             public void onResponse(Call<ResponseReports> call, Response<ResponseReports> response) {
                 //progressDialog.dismiss();
                 layout_Progress.setVisibility(View.GONE);
-
                 if (response.isSuccessful()) {
                     data.clear();
                     data = response.body().getResponse().getResult();

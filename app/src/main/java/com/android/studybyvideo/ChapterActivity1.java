@@ -228,7 +228,8 @@ public class ChapterActivity1 extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(ChapterActivity1.this, VideoPlayer1.class);
-                    intent.putExtra("chapter_id", data.get(position).getChapter_Id());
+                    //intent.putExtra("chapter_id", data.get(position).getChapter_Id());
+                    intent.putExtra("chapter_id", data.get(position));
                     startActivity(intent);
                 }
             });

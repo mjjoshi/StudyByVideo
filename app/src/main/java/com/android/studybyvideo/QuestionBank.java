@@ -29,12 +29,16 @@ public class QuestionBank extends AppCompatActivity {
     public ArrayList<QuestionbankList> questionlist=new ArrayList<>();
     String chapter_id,book_id;
     ImageView back_btn;
+    private View layout_Progress;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getSupportActionBar().hide();
         setContentView(R.layout.questionbank);
         view_pager=findViewById(R.id.view_pager);
+        layout_Progress = findViewById(R.id.layout_Progress);
+
         chapter_id=getIntent().getStringExtra("chapter_id");
         book_id=getIntent().getStringExtra("book_id");
         back_btn=(ImageView)findViewById(R.id.back_btn);
@@ -66,11 +70,15 @@ public class QuestionBank extends AppCompatActivity {
 
 
     private void getQuestionBank(String id) {
-        final ProgressDialog progressDialog = new ProgressDialog(QuestionBank.this);
-//        progressDialog.setTitle(getResources().getString(R.string.text_logging_in));
-        progressDialog.setMessage( "Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        final ProgressDialog progressDialog = new ProgressDialog(QuestionBank.this);
+////        progressDialog.setTitle(getResources().getString(R.string.text_logging_in));
+//        progressDialog.setMessage( "Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+
+
+        layout_Progress.setVisibility(View.VISIBLE);
+
         Call<ReponseQuestionBank> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getQuestionBank(
                 "application/x-www-form-urlencoded",
                 "getQuestionBank",
@@ -80,7 +88,10 @@ public class QuestionBank extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ReponseQuestionBank>() {
             @Override
             public void onResponse(Call<ReponseQuestionBank> call, Response<ReponseQuestionBank> response) {
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+
+
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus()==200){
                     questionlist.clear();
                     questionlist = response.body().getResponse().getResult();
@@ -92,7 +103,8 @@ public class QuestionBank extends AppCompatActivity {
             @Override
             public void onFailure(Call<ReponseQuestionBank> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
             }
         });
     }
