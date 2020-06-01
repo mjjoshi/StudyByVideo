@@ -1,22 +1,26 @@
 package com.android.studybyvideo;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.android.studybyvideo.ApiClient.ApiClient;
@@ -56,7 +60,9 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
     private TextView submit, txt_title, txt_Des;
     private EditText edt_q;
     private AppCompatButton btnAskQuestion;
-    private LinearLayout llQB, llNotes;
+    private LinearLayout llQB, llNotes, llBottom;
+    private ImageView fullscreenButton;
+    private boolean fullscreen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +81,7 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
         back_btn.setOnClickListener(v -> onBackPressed());
         //chapter_id = intent.getStringExtra("chapter_id");
         chapterData = (ChapterList) intent.getSerializableExtra("chapter_id");
-        if(chapterData != null){
+        if (chapterData != null) {
             txt_title.setText(chapterData.getChapter_Name());
             txt_Des.setText(chapterData.getChapter_des());
         }
@@ -91,9 +97,11 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
 
 
         header = findViewById(R.id.header);
+        llBottom = findViewById(R.id.llBottom);
         final ImageView back_btn = findViewById(R.id.back_btn);
         progressBar = findViewById(R.id.progressBarLottie);
         playerView = findViewById(R.id.player_view);
+        fullscreenButton = playerView.findViewById(R.id.exo_fullscreen_icon);
 
         btnAskQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +137,57 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
+
+
+        fullscreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(fullscreen) {
+                    llBottom.setVisibility(View.VISIBLE);
+                    header.setVisibility(View.VISIBLE);
+                    fullscreenButton.setImageDrawable(ContextCompat.getDrawable(VideoPlayer1.this, R.drawable.ic_fullscreen));
+
+                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+
+                    if(getSupportActionBar() != null){
+                        getSupportActionBar().show();
+                    }
+
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                    DisplayMetrics matrics = getScreenResolution(VideoPlayer1.this);
+
+                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) playerView.getLayoutParams();
+                    params.width = matrics.widthPixels;
+                    params.height = dpToPx(280);
+                    playerView.setLayoutParams(params);
+
+                    fullscreen = false;
+                }else{
+                    llBottom.setVisibility(View.GONE);
+                    header.setVisibility(View.GONE);
+                    fullscreenButton.setImageDrawable(ContextCompat.getDrawable(VideoPlayer1.this, R.drawable.ic_fullscreen_exit));
+
+                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
+                            |View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            |View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
+                    if(getSupportActionBar() != null){
+                        getSupportActionBar().hide();
+                    }
+
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                    DisplayMetrics matrics = getScreenResolution(VideoPlayer1.this);
+
+                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) playerView.getLayoutParams();
+                    params.width = matrics.widthPixels;
+                    params.height = matrics.heightPixels;
+                    playerView.setLayoutParams(params);
+
+                    fullscreen = true;
+                }
+            }
+        });
+
         getVideoOfChapter();
     }
 
@@ -218,14 +277,34 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause ");
+        pausePlayer();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startPlayer();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        player.stop();
+        if (player != null)
+            player.release();
+    }
+
+    private void pausePlayer() {
+        if (player != null && player.isPlaying()) {
+            player.setPlayWhenReady(false);
+            player.getPlaybackState();
+        }
+    }
+
+    private void startPlayer() {
+        if (player != null) {
+            player.setPlayWhenReady(true);
+            player.getPlaybackState();
+        }
     }
 
     @Override
@@ -244,5 +323,14 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "onRestoreInstanceState Position=" + mSeekPosition);
     }
 
+    private DisplayMetrics getScreenResolution(Context context)
+    {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics;
+    }
 
+    public int dpToPx(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
 }

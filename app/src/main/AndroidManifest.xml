@@ -90,7 +90,7 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".VideoPlayer1"
-            android:screenOrientation="portrait"/>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".ChapterActivity1"
             android:screenOrientation="portrait"/>

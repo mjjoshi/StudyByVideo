@@ -100,192 +100,199 @@
 
     </RelativeLayout>
 
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black">
-
-    </View>
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
+        android:id="@+id/llBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="@drawable/ripple">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black">
+
+        </View>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:foreground="@drawable/ripple">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dimen_10dp"
+                    android:paddingTop="@dimen/dimen_10dp"
+                    android:paddingRight="@dimen/dimen_10dp">
+
+                    <ImageView
+                        android:id="@+id/ivBookmarks"
+                        android:layout_width="@dimen/dimen_24dp"
+                        android:layout_height="@dimen/dimen_24dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_bookmarks" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:layout_marginTop="@dimen/dimen_1dp"
+                        android:layout_toLeftOf="@+id/ivBookmarks"
+                        android:backgroundTint="@color/orange_text"
+                        android:max="1"
+                        android:numStars="1"
+                        android:rating="1.5"
+                        android:theme="@style/RatingBar"
+                        android:transformPivotX="0dp"
+                        android:transformPivotY="0dp" />
+
+                    <TextView
+                        android:id="@+id/tvRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_10dp"
+                        android:layout_toLeftOf="@+id/ratingBar"
+                        android:text="4.8"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sub_heading" />
+
+                    <TextView
+                        android:id="@+id/txt_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sub_heading"
+                        android:textStyle="bold"
+                        tools:text="sjshdgshg dsf shfj sfd" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_des"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_10dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sub_heading"
+                    tools:text="Dr Ashis jdsgjggsdj hjgsjhgdjsg fsdu yjgsdh skhfksdf sfkhsdfj sfdfskdhhdfjk fkdjskjs ksfjd fsdjkfdhskfjdsfdshkj" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_15dp"
+            android:foreground="@drawable/ripple"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:paddingLeft="@dimen/dimen_10dp"
                 android:paddingTop="@dimen/dimen_10dp"
                 android:paddingRight="@dimen/dimen_10dp">
 
-                <ImageView
-                    android:id="@+id/ivBookmarks"
-                    android:layout_width="@dimen/dimen_24dp"
-                    android:layout_height="@dimen/dimen_24dp"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_bookmarks" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/llVideo"
+                    android:layout_width="@dimen/dimen_0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimen_5dp"
-                    android:layout_marginTop="@dimen/dimen_1dp"
-                    android:layout_toLeftOf="@+id/ivBookmarks"
-                    android:backgroundTint="@color/orange_text"
-                    android:max="1"
-                    android:numStars="1"
-                    android:rating="1.5"
-                    android:theme="@style/RatingBar"
-                    android:transformPivotX="0dp"
-                    android:transformPivotY="0dp" />
+                    android:layout_marginRight="@dimen/dimen_5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvRating"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/bold"
+                        android:text="Fragment"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <View
+                        android:id="@+id/videoSeparator"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_3dp"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:background="@color/mobile_bg" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llQB"
+                    android:layout_width="@dimen/dimen_0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_10dp"
-                    android:layout_toLeftOf="@+id/ratingBar"
-                    android:text="4.8"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sub_heading" />
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:layout_marginRight="@dimen/dimen_5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txt_title"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/bold"
+                        android:text="Question Bank"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <View
+                        android:id="@+id/QBSeparator"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_3dp"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:background="@color/mobile_bg"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llNotes"
+                    android:layout_width="@dimen/dimen_0dp"
                     android:layout_height="wrap_content"
-                    android:maxLines="2"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sub_heading"
-                    android:textStyle="bold"
-                    tools:text="sjshdgshg dsf shfj sfd" />
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:layout_marginRight="@dimen/dimen_5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/bold"
+                        android:text="Notes"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp" />
 
-            <TextView
-                android:id="@+id/txt_des"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_10dp"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:textColor="@color/black"
-                android:textSize="@dimen/sub_heading"
-                tools:text="Dr Ashis jdsgjggsdj hjgsjhgdjsg fsdu yjgsdh skhfksdf sfkhsdfj sfdfskdhhdfjk fkdjskjs ksfjd fsdjkfdhskfjdsfdshkj" />
+                    <View
+                        android:id="@+id/viewNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_3dp"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:background="@color/mobile_bg"
+                        android:visibility="gone" />
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_15dp"
-        android:foreground="@drawable/ripple"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="2dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/dimen_10dp"
-            android:paddingTop="@dimen/dimen_10dp"
-            android:paddingRight="@dimen/dimen_10dp">
-
-            <LinearLayout
-                android:id="@+id/llVideo"
-                android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_5dp"
-                android:layout_marginRight="@dimen/dimen_5dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/bold"
-                    android:text="Fragment"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16sdp" />
-
-                <View
-                    android:id="@+id/videoSeparator"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_3dp"
-                    android:layout_marginTop="@dimen/dimen_10dp"
-                    android:background="@color/mobile_bg" />
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llQB"
-                android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_5dp"
-                android:layout_marginRight="@dimen/dimen_5dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+        </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/bold"
-                    android:text="Question Bank"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16sdp" />
-
-                <View
-                    android:id="@+id/QBSeparator"
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:layout_height="@dimen/dimen_3dp"
-                    android:layout_marginTop="@dimen/dimen_10dp"
-                    android:background="@color/mobile_bg" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llNotes"
-                android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_5dp"
-                android:layout_marginRight="@dimen/dimen_5dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/bold"
-                    android:text="Notes"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16sdp" />
-
-                <View
-                    android:id="@+id/viewNotes"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_3dp"
-                    android:layout_marginTop="@dimen/dimen_10dp"
-                    android:background="@color/mobile_bg" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
 </LinearLayout>
