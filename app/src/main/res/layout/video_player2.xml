@@ -77,10 +77,10 @@
         </TextView>
     </RelativeLayout>
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/video_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="280dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/black">
 
         <com.google.android.exoplayer2.ui.PlayerView
@@ -92,13 +92,13 @@
             android:id="@+id/progressBarLottie"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_centerInParent="true"
+            android:layout_gravity="center"
             android:visibility="visible"
             app:lottie_autoPlay="true"
             app:lottie_fileName="loading.json"
             app:lottie_loop="true" />
 
-    </RelativeLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/llBottom"

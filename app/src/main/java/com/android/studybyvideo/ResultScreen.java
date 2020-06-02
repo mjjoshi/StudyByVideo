@@ -1,5 +1,7 @@
 package com.android.studybyvideo;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * Created by ${} on 5/10/2020.
  */
 public class ResultScreen extends AppCompatActivity {
-    TextView txt_attempt_count,txt_test_name,txt_total_no_q,txt_score,txt_wrong_count;
+    TextView txt_attempt_count,txt_test_name,txt_total_no_q,txt_score,txt_wrong_count, nextReports;
     ImageView imgBtnProfileBack;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class ResultScreen extends AppCompatActivity {
         txt_total_no_q=findViewById(R.id.txt_total_no_q);
         txt_test_name=findViewById(R.id.txt_test_name);
         txt_score=findViewById(R.id.txt_score);
+        nextReports=findViewById(R.id.nextReports);
         txt_wrong_count=findViewById(R.id.txt_wrong_count);
         txt_attempt_count.setText(""+MyApplication.sumbitmodel.getAttempted_count());
         txt_score.setText(""+MyApplication.sumbitmodel.getPercentage());
@@ -34,6 +37,19 @@ public class ResultScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        nextReports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                String client_id = sh.getString("client_id", "");
+                Intent intent = new Intent(ResultScreen.this, ReportsList.class);
+                intent.putExtra("client_id", client_id);
+                startActivity(intent);
+                finish();
+
             }
         });
     }
