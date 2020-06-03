@@ -19,7 +19,7 @@ public class Time_Up extends AppCompatActivity {
         setContentView(R.layout.activity_time__up);
         //Initialize
         playAgainButton =  findViewById(R.id.playAgainButton);
-        timeUpText = (TextView)findViewById(R.id.timeUpText);
+        timeUpText = findViewById(R.id.timeUpText);
 
         //play again button onclick listener
         playAgainButton.setOnClickListener(new View.OnClickListener() {

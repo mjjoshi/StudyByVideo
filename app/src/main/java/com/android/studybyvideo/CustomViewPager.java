@@ -50,13 +50,9 @@ public class CustomViewPager extends ViewPager {
             float diffX = event.getX() - initialXValue;
 
             if (Math.abs(diffX) > SWIPE_THRESHOLD ) {
-                if (diffX > 0) {
-                    // swipe from left to right detected ie.SwipeRight
-                    result = false;
-                } else {
-                    // swipe from right to left detected ie.SwipeLeft
-                    result = true;
-                }
+                // swipe from left to right detected ie.SwipeRight
+                // swipe from right to left detected ie.SwipeLeft
+                result = !(diffX > 0);
             }
         }
         catch (Exception exception) {

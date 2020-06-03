@@ -40,6 +40,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -215,6 +216,7 @@ public class QuestionHistory extends AppCompatActivity {
         public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
             holder.txt_title.setText("Q. " + scheduleListingList.get(position).getQ_no());
+            //holder.txt_Question_name.setText(scheduleListingList.get(position));
             if (data.get(position).getIs_attempted().equalsIgnoreCase("ATTEMPTED")) {
                 holder.llmain.setBackground(getDrawable(R.drawable.green_border));
             } else {
@@ -260,11 +262,12 @@ public class QuestionHistory extends AppCompatActivity {
 
 
         public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView txt_title;
+            TextView txt_title, txt_Question_name;
             LinearLayout llmain;
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
+                txt_Question_name = itemView.findViewById(R.id.txt_Question_name);
                 txt_title = itemView.findViewById(R.id.txt_title);
                 llmain = itemView.findViewById(R.id.llmain);
             }

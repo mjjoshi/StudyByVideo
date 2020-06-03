@@ -65,7 +65,7 @@ public class QuestionabkAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View v, Object obj) {
-        return v == ((RelativeLayout) obj);
+        return v == obj;
     }
 
     @Override
@@ -290,7 +290,7 @@ public class QuestionabkAdapter extends PagerAdapter {
                 activity.view_pager.setCurrentItem(i+1);
             }
         });
-        ((ViewPager) container).addView(view, 0);
+        container.addView(view, 0);
 
         runnable=new Runnable() {
             @Override
@@ -330,7 +330,7 @@ public class QuestionabkAdapter extends PagerAdapter {
     }
     @Override
     public void destroyItem(ViewGroup container, int i, Object obj) {
-        ((ViewPager) container).removeView((RelativeLayout) obj);
+        container.removeView((RelativeLayout) obj);
     }
 
 

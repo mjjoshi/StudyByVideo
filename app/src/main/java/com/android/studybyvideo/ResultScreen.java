@@ -34,10 +34,11 @@ public class ResultScreen extends AppCompatActivity {
         txt_marks=findViewById(R.id.txt_marks);
         txt_skipped=findViewById(R.id.txt_skipped);
 
+
+        txt_skipped.setText(""+MyApplication.sumbitmodel.getSkipped_question_count());
         txt_attempt_count.setText(""+MyApplication.sumbitmodel.getAttempted_count());
         txt_score.setText(""+MyApplication.sumbitmodel.getPercentage());
         txt_marks.setText(""+MyApplication.sumbitmodel.getMarks());
-
         txt_total_no_q.setText(""+MyApplication.sumbitmodel.getTotal_count());
         txt_wrong_count.setText(""+MyApplication.sumbitmodel.getNeg_mark_q_count());
         txt_test_name.setText("Test Name :"+MyApplication.sumbitmodel.getTest_name());

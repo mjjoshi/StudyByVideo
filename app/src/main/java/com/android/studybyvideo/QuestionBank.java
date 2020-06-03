@@ -41,7 +41,7 @@ public class QuestionBank extends AppCompatActivity {
 
         chapter_id=getIntent().getStringExtra("chapter_id");
         book_id=getIntent().getStringExtra("book_id");
-        back_btn=(ImageView)findViewById(R.id.back_btn);
+        back_btn= findViewById(R.id.back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

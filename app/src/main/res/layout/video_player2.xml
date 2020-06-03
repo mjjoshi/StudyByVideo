@@ -78,7 +78,6 @@
     </RelativeLayout>
 
     <FrameLayout
-        android:id="@+id/video_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/black">
@@ -154,7 +153,6 @@
                         android:transformPivotY="0dp" />
 
                     <TextView
-                        android:id="@+id/tvRating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimen_10dp"
@@ -207,7 +205,6 @@
                 android:paddingRight="@dimen/dimen_10dp">
 
                 <LinearLayout
-                    android:id="@+id/llVideo"
                     android:layout_width="@dimen/dimen_0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimen_5dp"
@@ -225,7 +222,6 @@
                         android:textSize="@dimen/_16sdp" />
 
                     <View
-                        android:id="@+id/videoSeparator"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimen_3dp"
                         android:layout_marginTop="@dimen/dimen_10dp"
@@ -252,7 +248,6 @@
                         android:textSize="@dimen/_16sdp" />
 
                     <View
-                        android:id="@+id/QBSeparator"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimen_3dp"
                         android:layout_marginTop="@dimen/dimen_10dp"
@@ -280,7 +275,6 @@
                         android:textSize="@dimen/_16sdp" />
 
                     <View
-                        android:id="@+id/viewNotes"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimen_3dp"
                         android:layout_marginTop="@dimen/dimen_10dp"

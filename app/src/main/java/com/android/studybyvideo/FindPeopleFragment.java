@@ -44,11 +44,11 @@ public class FindPeopleFragment extends AppCompatActivity {
         setContentView(R.layout.fragment_find_people);
         String description = getIntent().getStringExtra("url");
         String headretxt = getIntent().getStringExtra("HEADER");
-        progress_circular = (ProgressBar) findViewById(R.id.progress_circular);
-        txtdescription = (TextView) findViewById(R.id.description);
-        txtTitle = (TextView) findViewById(R.id.txtTitle);
+        progress_circular = findViewById(R.id.progress_circular);
+        txtdescription = findViewById(R.id.description);
+        txtTitle = findViewById(R.id.txtTitle);
         txtTitle.setText(headretxt);
-        imgBtnProfileBack = (ImageView) findViewById(R.id.imgBtnProfileBack);
+        imgBtnProfileBack = findViewById(R.id.imgBtnProfileBack);
 //        WebView wv = (WebView) this.findViewById(R.id.webview);
 ////        wv.getSettings().setJavaScriptEnabled(true);
 //////        wv.loadDataWithBaseURL(null, description, "text/html", "utf-8", null);
@@ -67,7 +67,7 @@ public class FindPeopleFragment extends AppCompatActivity {
     WebView myWebView;
     public void loadurl(String url) {
         progress_circular.setVisibility(View.VISIBLE);
-         myWebView = (WebView) findViewById(R.id.webview);
+         myWebView = findViewById(R.id.webview);
         Open_Api(url);
     }
     public void Open_Api(String file_path){
@@ -86,7 +86,7 @@ public class FindPeopleFragment extends AppCompatActivity {
                     } else {
                         progress_circular.setVisibility(View.VISIBLE);
 
-                    };
+                    }
 
                 }
             });

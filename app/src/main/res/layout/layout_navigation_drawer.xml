@@ -6,7 +6,6 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/linearTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -41,7 +40,6 @@
         android:background="@color/black" />
 
     <LinearLayout
-        android:id="@+id/linea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -62,7 +60,6 @@
                 android:src="@drawable/ic_about_us" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/aboutus"
                 style="@style/textStyleRegular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

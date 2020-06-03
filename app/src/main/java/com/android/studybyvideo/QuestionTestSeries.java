@@ -56,12 +56,12 @@ public class QuestionTestSeries extends AppCompatActivity {
         chapter_id = getIntent().getStringExtra("chapter_id");
         minutes = getIntent().getStringExtra("time");
         current_pos = getIntent().getIntExtra("position",0);
-         back_btn = (ImageView) findViewById(R.id.back_btn);
+         back_btn = findViewById(R.id.back_btn);
         review =  findViewById(R.id.review);
-        isSelected_option4 = (ImageView) findViewById(R.id.isSelected_option4);
-        isSelected_option3 = (ImageView) findViewById(R.id.isSelected_option3);
-        isSelected_option2 = (ImageView) findViewById(R.id.isSelected_option2);
-        isSelected_option1 = (ImageView) findViewById(R.id.isSelected_option1);
+        isSelected_option4 = findViewById(R.id.isSelected_option4);
+        isSelected_option3 = findViewById(R.id.isSelected_option3);
+        isSelected_option2 = findViewById(R.id.isSelected_option2);
+        isSelected_option1 = findViewById(R.id.isSelected_option1);
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +95,7 @@ public class QuestionTestSeries extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 int value= (int) (millisUntilFinished/60000);
                 //here you can have your logic to set text to timeText
-                timeText.setText("Time :"+String.valueOf(value)+" mins");
+                timeText.setText("Time :"+ value +" mins");
 
                 //With each iteration decrement the time by 1 sec
                 timeValue -= 1;
@@ -275,7 +275,6 @@ public class QuestionTestSeries extends AppCompatActivity {
             @Override
             public void onResponse(Call<ReponseQuestionBank> call, Response<ReponseQuestionBank> response) {
                 progressDialog.dismiss();
-
                 if (response.body().getResponse().getStatus() == 200) {
                     questionlist.clear();
                     questionlist = response.body().getResponse().getResult();

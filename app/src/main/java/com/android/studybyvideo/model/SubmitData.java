@@ -30,6 +30,28 @@ public class SubmitData {
     @SerializedName("modified")
     private String modified;
 
+    public String getSkipped_question_count() {
+        return skipped_question_count;
+    }
+
+    public void setSkipped_question_count(String skipped_question_count) {
+        this.skipped_question_count = skipped_question_count;
+    }
+
+    @SerializedName("skip_question_count")
+    private String skipped_question_count;
+
+    public String getCorrect_question_count() {
+        return correct_question_count;
+    }
+
+    public void setCorrect_question_count(String correct_question_count) {
+        this.correct_question_count = correct_question_count;
+    }
+
+    @SerializedName("correct_question_count")
+    private String correct_question_count;
+
     public String getTest_name() {
         return test_name;
     }

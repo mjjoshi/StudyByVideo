@@ -96,10 +96,10 @@ public class VideoPlayer extends AppCompatActivity implements View.OnClickListen
                 }
             }
         });
-        header = (RelativeLayout) findViewById(R.id.header);
-        final ImageView back_btn = (ImageView) findViewById(R.id.back_btn);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        videoView = (VideoView) findViewById(R.id.vdVw);
+        header = findViewById(R.id.header);
+        final ImageView back_btn = findViewById(R.id.back_btn);
+        progressBar = findViewById(R.id.progressBar);
+        videoView = findViewById(R.id.vdVw);
         playerView = findViewById(R.id.player_view);
 
 

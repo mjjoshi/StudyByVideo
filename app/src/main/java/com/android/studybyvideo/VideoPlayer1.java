@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -207,7 +208,7 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                     Point matrics = getScreenResolution(VideoPlayer1.this);
                     FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) playerView.getLayoutParams();
-                    params.width = params.MATCH_PARENT;
+                    params.width = ViewGroup.LayoutParams.MATCH_PARENT;
                     params.height = dpToPx(280);
                     playerView.setLayoutParams(params);
 
@@ -226,8 +227,8 @@ public class VideoPlayer1 extends AppCompatActivity implements View.OnClickListe
                     Point matrics = getScreenResolution(VideoPlayer1.this);
 
                     FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) playerView.getLayoutParams();
-                    params.width = params.MATCH_PARENT;
-                    params.height = params.MATCH_PARENT;
+                    params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                    params.height = ViewGroup.LayoutParams.MATCH_PARENT;
                     playerView.setLayoutParams(params);
 
                     fullscreen = true;

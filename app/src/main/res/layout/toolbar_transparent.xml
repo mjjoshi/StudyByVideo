@@ -15,7 +15,6 @@
         android:src="@drawable/icn_menu" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvToolbarTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bold"
