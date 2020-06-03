@@ -275,6 +275,7 @@ public class QuestionTestSeries extends AppCompatActivity {
             @Override
             public void onResponse(Call<ReponseQuestionBank> call, Response<ReponseQuestionBank> response) {
                 progressDialog.dismiss();
+
                 if (response.body().getResponse().getStatus() == 200) {
                     questionlist.clear();
                     questionlist = response.body().getResponse().getResult();
