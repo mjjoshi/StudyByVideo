@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -227,10 +228,17 @@ public class ChapterActivity1 extends AppCompatActivity {
             holder.llMain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(ChapterActivity1.this, VideoPlayer1.class);
-                    //intent.putExtra("chapter_id", data.get(position).getChapter_Id());
-                    intent.putExtra("chapter_id", data.get(position));
-                    startActivity(intent);
+
+                    if (!data.get(position).getLock_status().equalsIgnoreCase("LOCK")) {
+                        Intent intent = new Intent(ChapterActivity1.this, VideoPlayer1.class);
+                        //intent.putExtra("chapter_id", data.get(position).getChapter_Id());
+                        intent.putExtra("chapter_id", data.get(position));
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(ChapterActivity1.this,"This Video is not able to play",Toast.LENGTH_LONG).show();
+                    }
+
+
                 }
             });
 
