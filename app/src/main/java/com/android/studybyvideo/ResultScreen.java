@@ -14,13 +14,15 @@ import androidx.appcompat.app.AppCompatActivity;
  * Created by ${} on 5/10/2020.
  */
 public class ResultScreen extends AppCompatActivity {
+
     TextView txt_attempt_count,txt_test_name,txt_total_no_q,txt_score,txt_wrong_count, nextReports ,txt_Question_attemp , txt_marks,txt_skipped ;
     ImageView imgBtnProfileBack;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getSupportActionBar().hide();
         setContentView(R.layout.result_screen);
+
         txt_attempt_count=findViewById(R.id.txt_attempt_count);
         imgBtnProfileBack=findViewById(R.id.imgBtnProfileBack);
         txt_total_no_q=findViewById(R.id.txt_total_no_q);
@@ -29,20 +31,18 @@ public class ResultScreen extends AppCompatActivity {
         nextReports=findViewById(R.id.nextReports);
         txt_wrong_count=findViewById(R.id.txt_wrong_count);
 
-
         txt_Question_attemp=findViewById(R.id.txt_Question_attemp);
         txt_marks=findViewById(R.id.txt_marks);
         txt_skipped=findViewById(R.id.txt_skipped);
 
-
         txt_skipped.setText(""+MyApplication.sumbitmodel.getSkipped_question_count());
-        txt_attempt_count.setText(""+MyApplication.sumbitmodel.getAttempted_count());
+        txt_attempt_count.setText(""+MyApplication.sumbitmodel.getCorrect_question_count());
         txt_score.setText(""+MyApplication.sumbitmodel.getPercentage());
         txt_marks.setText(""+MyApplication.sumbitmodel.getMarks());
         txt_total_no_q.setText(""+MyApplication.sumbitmodel.getTotal_count());
         txt_wrong_count.setText(""+MyApplication.sumbitmodel.getNeg_mark_q_count());
-        txt_test_name.setText("Test Name :"+MyApplication.sumbitmodel.getTest_name());
-
+        txt_test_name.setText("Test Name: "+MyApplication.sumbitmodel.getTest_name());
+        txt_Question_attemp.setText(""+MyApplication.sumbitmodel.getAttempted_count());
 
         imgBtnProfileBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +60,13 @@ public class ResultScreen extends AppCompatActivity {
                 intent.putExtra("client_id", client_id);
                 startActivity(intent);
                 finish();
-
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(ResultScreen.this, CoursesActivity1.class));
+        finish();
     }
 }

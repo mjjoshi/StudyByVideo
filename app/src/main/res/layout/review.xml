@@ -41,8 +41,9 @@
                     android:singleLine="true"
                     android:layout_toRightOf="@+id/address_back"
                     android:text="Review"
+                    android:fontFamily="@font/bold"
                     android:textColor="@color/color_white"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_20sdp" />
 
             </RelativeLayout>
 

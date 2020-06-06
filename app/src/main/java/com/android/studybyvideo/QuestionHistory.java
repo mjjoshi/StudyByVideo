@@ -10,36 +10,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.android.studybyvideo.ApiClient.ApiClient;
-import com.android.studybyvideo.ApiClient.ApiInterface;
-import com.android.studybyvideo.model.ChapterList;
-import com.android.studybyvideo.model.QuestionbankList;
-import com.android.studybyvideo.model.ReponseQuestionBank;
-import com.android.studybyvideo.model.ReponseReview;
-import com.android.studybyvideo.model.ReponseReviewList;
-import com.android.studybyvideo.model.ResponseChapter;
-import com.android.studybyvideo.model.ResponseSumbit;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.studybyvideo.ApiClient.ApiClient;
+import com.android.studybyvideo.ApiClient.ApiInterface;
+import com.android.studybyvideo.model.ReponseReview;
+import com.android.studybyvideo.model.ReponseReviewList;
+import com.android.studybyvideo.model.ResponseSumbit;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -111,11 +102,15 @@ public class QuestionHistory extends AppCompatActivity {
         progressDialog.setMessage("Please Wait..");
         progressDialog.setCancelable(false);
         progressDialog.show();
+
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String client_id = sh.getString("client_id", "");
+
         Call<ReponseReview> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).getReviewedQuestionsList(
                 "application/x-www-form-urlencoded",
                 "getReviewedQuestionsList",
+                client_id,
                 id
-
         );
         scheduleListingCall.enqueue(new Callback<ReponseReview>() {
             @Override
@@ -150,7 +145,6 @@ public class QuestionHistory extends AppCompatActivity {
 
             ScheduleListingAdapter adapter = new ScheduleListingAdapter(this, data);
             scheduleListing_elv.setAdapter(adapter);
-
         }
     }
 
@@ -215,8 +209,8 @@ public class QuestionHistory extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-            holder.txt_title.setText("Q. " + scheduleListingList.get(position).getQ_no());
-            //holder.txt_Question_name.setText(scheduleListingList.get(position));
+            holder.txt_title.setText("Q. " + scheduleListingList.get(position).getQuestion());
+//            holder.txt_Question_name.setText(scheduleListingList.get(position).getQuestion());
             if (data.get(position).getIs_attempted().equalsIgnoreCase("ATTEMPTED")) {
                 holder.llmain.setBackground(getDrawable(R.drawable.green_border));
             } else {

@@ -1,6 +1,5 @@
 package com.android.studybyvideo;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -145,6 +144,11 @@ public class ReportsList extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(ReportsList.this, CoursesActivity1.class));
+        finish();
+    }
 
     private void submit() {
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
@@ -209,7 +213,7 @@ public class ReportsList extends AppCompatActivity {
 
             holder.txt_test_name.setText("" + scheduleListingList.get(position).getTest_name());
 
-            holder.txt_marks.setText(data.get(position).getMarks());
+            holder.txt_marks.setText(data.get(position).getMarkes());
             holder.txt_per.setText(data.get(position).getPercentage());
 //            if (data.get(position).isSelected()){
 //                holder.isSelected.setVisibility(View.VISIBLE);

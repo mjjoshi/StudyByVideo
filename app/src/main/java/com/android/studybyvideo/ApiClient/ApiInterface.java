@@ -2,11 +2,9 @@ package com.android.studybyvideo.ApiClient;
 
 
 import com.android.studybyvideo.ResponseOtp;
-import com.android.studybyvideo.model.LoginResponse;
 import com.android.studybyvideo.model.ReponseAboutUs;
 import com.android.studybyvideo.model.ReponseQuestionBank;
 import com.android.studybyvideo.model.ReponseReview;
-import com.android.studybyvideo.model.ReponseReviewList;
 import com.android.studybyvideo.model.ResponseChapter;
 import com.android.studybyvideo.model.ResponseCoursesListModel;
 import com.android.studybyvideo.model.ResponseLogin;
@@ -16,11 +14,8 @@ import com.android.studybyvideo.model.ResponseTestName;
 import com.android.studybyvideo.model.ResponseTestType;
 import com.android.studybyvideo.model.ResponseVideo;
 
-import java.util.List;
-
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Header;
@@ -70,11 +65,13 @@ public interface ApiInterface {
     @POST("studybyvideo/")
     Call<ReponseQuestionBank> getTestQuestionBank(@Header("Content-Type") String contenttype,
                                               @Field("api_name") String name,
+                                              @Field("client_id") String client_id,
                                               @Field("ttname_id") String bookName);
 @FormUrlEncoded
     @POST("studybyvideo/")
     Call<ReponseReview> getReviewedQuestionsList(@Header("Content-Type") String contenttype,
                                                  @Field("api_name") String name,
+                                                 @Field("client_id") String client_id,
                                                  @Field("ttname_id") String bookName);
 
 @FormUrlEncoded

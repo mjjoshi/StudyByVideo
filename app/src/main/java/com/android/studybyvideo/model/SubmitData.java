@@ -7,10 +7,9 @@ import com.google.gson.annotations.SerializedName;
  */
 public class SubmitData {
 
-
     @SerializedName("test_name")
     private String test_name;
-    @SerializedName("marks")
+    @SerializedName("markes")
     private String marks;
     @SerializedName("percentage")
     private String percentage;
@@ -21,7 +20,6 @@ public class SubmitData {
     @SerializedName("total_count")
     private String total_count;
     @SerializedName("marks_of_question")
-
     private String marks_of_question;
     @SerializedName("negative_marks")
     private String negative_marks;
@@ -29,6 +27,12 @@ public class SubmitData {
     private String created;
     @SerializedName("modified")
     private String modified;
+    @SerializedName("skip_question_count")
+    private String skipped_question_count;
+    @SerializedName("correct_question_count")
+    private String correct_question_count;
+    @SerializedName("total_marks")
+    private String total_marks;
 
     public String getSkipped_question_count() {
         return skipped_question_count;
@@ -38,9 +42,6 @@ public class SubmitData {
         this.skipped_question_count = skipped_question_count;
     }
 
-    @SerializedName("skip_question_count")
-    private String skipped_question_count;
-
     public String getCorrect_question_count() {
         return correct_question_count;
     }
@@ -48,9 +49,6 @@ public class SubmitData {
     public void setCorrect_question_count(String correct_question_count) {
         this.correct_question_count = correct_question_count;
     }
-
-    @SerializedName("correct_question_count")
-    private String correct_question_count;
 
     public String getTest_name() {
         return test_name;
@@ -130,5 +128,13 @@ public class SubmitData {
 
     public void setModified(String modified) {
         this.modified = modified;
+    }
+
+    public String getTotal_marks() {
+        return total_marks;
+    }
+
+    public void setTotal_marks(String total_marks) {
+        this.total_marks = total_marks;
     }
 }

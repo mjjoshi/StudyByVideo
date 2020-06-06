@@ -10,6 +10,8 @@ public class ReponseReviewList {
     private String q_no;
     @SerializedName("is_attempted")
     private String is_attempted;
+    @SerializedName("question")
+    private String question;
 
     public String getQ_no() {
         return q_no;
@@ -25,5 +27,13 @@ public class ReponseReviewList {
 
     public void setIs_attempted(String is_attempted) {
         this.is_attempted = is_attempted;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
     }
 }

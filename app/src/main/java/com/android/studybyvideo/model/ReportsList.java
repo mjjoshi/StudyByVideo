@@ -24,16 +24,15 @@ public class ReportsList {
     @SerializedName("total_count")
     private String total_count;
     @SerializedName("marks_of_question")
-    private String total_marks;
-    @SerializedName("total_marks")
-    private String rank;
-    @SerializedName("rank")
-    private String total_rank;
-    @SerializedName("total_rank")
-    private String markes;
-    @SerializedName("markes")
-
     private String marks_of_question;
+    @SerializedName("total_marks")
+    private String total_marks;
+    @SerializedName("rank")
+    private String rank;
+    @SerializedName("total_rank")
+    private String total_rank;
+    @SerializedName("markes")
+    private String markes;
     @SerializedName("negative_marks")
     private String negative_marks;
     @SerializedName("created")

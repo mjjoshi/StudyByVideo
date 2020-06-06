@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorGrey"
     android:orientation="vertical">
 
@@ -14,7 +15,7 @@
 
         <ImageView
             android:id="@+id/imgBtnProfileBack"
-            android:layout_width="@dimen/_40sdp"
+            android:layout_width="@dimen/dimen_40dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -29,14 +30,14 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/imgBtnProfileBack"
             android:layout_toRightOf="@+id/imgBtnProfileBack"
             android:layout_weight="1"
             android:padding="5dp"
             android:text="Result"
+            android:fontFamily="@font/bold"
             android:textColor="@color/color_white"
-            android:textSize="14sp" />
+            android:textSize="@dimen/_20sdp" />
 
     </RelativeLayout>
 
@@ -81,11 +82,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10sp"
-        android:elevation="10sp"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:elevation="@dimen/dimen_10dp"
         app:cardBackgroundColor="@color/color_white"
-        app:cardCornerRadius="10sp"
-        app:cardElevation="10sp">
+        app:cardCornerRadius="@dimen/dimen_10dp"
+        app:cardElevation="@dimen/dimen_10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,9 +99,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginRight="10sp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -116,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="200 "
+                    tools:text="200"
                     android:textColor="#000" />
 
             </LinearLayout>
@@ -126,9 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginRight="10sp"
+                android:layout_marginTop="@dimen/dimen_15dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -144,7 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="200 "
+                    tools:text="200"
                     android:textColor="#000" />
 
             </LinearLayout>
@@ -154,9 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginRight="10sp"
+                android:layout_marginTop="@dimen/dimen_15dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -181,9 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginRight="10sp"
+                android:layout_marginTop="@dimen/dimen_15dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -203,17 +198,11 @@
 
             </LinearLayout>
 
-
-
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginRight="10sp"
+                android:layout_marginTop="@dimen/dimen_15dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -221,7 +210,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="skipped Questions : "
+                    android:text="Skipped Questions : "
                     android:textColor="#000" />
 
                 <TextView
@@ -233,17 +222,11 @@
 
             </LinearLayout>
 
-
-
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginRight="10sp"
+                android:layout_marginTop="@dimen/dimen_15dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -251,7 +234,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Marks: "
+                    android:text="Marks : "
                     android:textColor="#000" />
 
                 <TextView
@@ -263,15 +246,11 @@
 
             </LinearLayout>
 
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginRight="10sp"
+                android:layout_marginTop="@dimen/dimen_15dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -279,7 +258,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Question attempted: "
+                    android:text="Question attempted : "
                     android:textColor="#000" />
 
                 <TextView
@@ -290,9 +269,6 @@
                     android:textColor="#000" />
 
             </LinearLayout>
-
-
-
 
             <TextView
                 android:id="@+id/txt_negative_marking_info"
@@ -310,7 +286,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/dimen_10dp"
         app:cardCornerRadius="@dimen/_5sdp"
         app:cardElevation="@dimen/_5sdp">
 
@@ -318,21 +294,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="For more Details go to Reports or Dashboard" />
+                android:text="For more Details go to Reports or Dashboard"
+                android:textColor="@color/black" />
 
             <TextView
-                android:layout_marginTop="@dimen/dimen_15dp"
-                android:layout_gravity="center_horizontal"
                 android:id="@+id/nextReports"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_15dp"
                 android:background="@color/mobile_bg"
                 android:gravity="center"
                 android:text="Reports"
