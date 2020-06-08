@@ -356,6 +356,13 @@
 
         </androidx.core.widget.NestedScrollView>
 
+        <include
+            android:id="@+id/layout_Progress"
+            layout="@layout/dilaog_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/skip"
             android:layout_width="wrap_content"

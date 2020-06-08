@@ -19,7 +19,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,6 +41,7 @@ import retrofit2.Response;
 public class QuestionHistory extends AppCompatActivity {
     ArrayList<ReponseReviewList> data = new ArrayList<>();
     RecyclerView scheduleListing_elv;
+    View layout_Progress;
     //    String bookname;
     ImageView address_back;
     ArrayList<String> status_list = new ArrayList<>();
@@ -57,6 +57,7 @@ public class QuestionHistory extends AppCompatActivity {
         id = getIntent().getStringExtra("id");
         scheduleListing_elv = findViewById(R.id.scheduleListing_elv);
         address_back = findViewById(R.id.address_back);
+        layout_Progress = findViewById(R.id.layout_Progress);
         next = findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,9 +100,10 @@ public class QuestionHistory extends AppCompatActivity {
     private void getScheduleListingData(String id) {
         final ProgressDialog progressDialog = new ProgressDialog(QuestionHistory.this);
 //        progressDialog.setTitle(getResources().getString(R.string.QuestionHistory));
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+        layout_Progress.setVisibility(View.VISIBLE);
 
         SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         String client_id = sh.getString("client_id", "");
@@ -115,7 +117,8 @@ public class QuestionHistory extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ReponseReview>() {
             @Override
             public void onResponse(Call<ReponseReview> call, Response<ReponseReview> response) {
-                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
+//                progressDialog.dismiss();
                 if (response.isSuccessful()) {
                     data.clear();
                     data = response.body().getResponse().getResult();
@@ -130,7 +133,8 @@ public class QuestionHistory extends AppCompatActivity {
             @Override
             public void onFailure(Call<ReponseReview> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
+//                progressDialog.dismiss();
             }
         });
     }
@@ -153,11 +157,13 @@ public class QuestionHistory extends AppCompatActivity {
         SharedPreferences sharedPreferences
                 = getSharedPreferences("MySharedPref",
                 MODE_PRIVATE);
-        final ProgressDialog progressDialog = new ProgressDialog(QuestionHistory.this);
+//        final ProgressDialog progressDialog = new ProgressDialog(QuestionHistory.this);
 //        progressDialog.setTitle(getResources().getString(R.string.text_logging_in));
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+        layout_Progress.setVisibility(View.VISIBLE);
+
         Call<ResponseSumbit> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).submit(
                 "application/x-www-form-urlencoded",
                 "addAnswerOfQuestion",
@@ -170,7 +176,8 @@ public class QuestionHistory extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ResponseSumbit>() {
             @Override
             public void onResponse(Call<ResponseSumbit> call, Response<ResponseSumbit> response) {
-                progressDialog.dismiss();
+//                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus() == 200) {
                     MyApplication.sumbitmodel = response.body().getResponse().getResult();
                     startActivity(new Intent(QuestionHistory.this, ResultScreen.class));
@@ -180,7 +187,8 @@ public class QuestionHistory extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseSumbit> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
+//                progressDialog.dismiss();
             }
         });
     }
@@ -189,14 +197,11 @@ public class QuestionHistory extends AppCompatActivity {
         Context context;
         List<ReponseReviewList> scheduleListingList;
         List<ReponseReviewList> list;
-        FragmentManager fragmentManager;
 
         public ScheduleListingAdapter(Context context, List<ReponseReviewList> scheduleListingList) {
             this.context = context;
             this.scheduleListingList = scheduleListingList;
             this.list = scheduleListingList;
-
-
         }
 
         @NonNull
@@ -209,8 +214,8 @@ public class QuestionHistory extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-            holder.txt_title.setText("Q. " + scheduleListingList.get(position).getQuestion());
-//            holder.txt_Question_name.setText(scheduleListingList.get(position).getQuestion());
+            holder.txt_title.setText("Q. " + scheduleListingList.get(position).getQ_no());
+            holder.txt_Question_name.setText("" + scheduleListingList.get(position).getQuestion());
             if (data.get(position).getIs_attempted().equalsIgnoreCase("ATTEMPTED")) {
                 holder.llmain.setBackground(getDrawable(R.drawable.green_border));
             } else {

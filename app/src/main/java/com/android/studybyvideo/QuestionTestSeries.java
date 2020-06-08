@@ -1,6 +1,5 @@
 package com.android.studybyvideo;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -47,6 +46,7 @@ public class QuestionTestSeries extends AppCompatActivity {
     String minutes;
     ImageView isSelected_option4, isSelected_option3, isSelected_option2, isSelected_option1;
     CardView review;
+    View layout_Progress;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class QuestionTestSeries extends AppCompatActivity {
         current_pos = getIntent().getIntExtra("position", 0);
         back_btn = findViewById(R.id.back_btn);
         review = findViewById(R.id.review);
+        layout_Progress = findViewById(R.id.layout_Progress);
         isSelected_option4 = findViewById(R.id.isSelected_option4);
         isSelected_option3 = findViewById(R.id.isSelected_option3);
         isSelected_option2 = findViewById(R.id.isSelected_option2);
@@ -200,11 +201,13 @@ public class QuestionTestSeries extends AppCompatActivity {
         SharedPreferences sharedPreferences
                 = getSharedPreferences("MySharedPref",
                 MODE_PRIVATE);
-        final ProgressDialog progressDialog = new ProgressDialog(QuestionTestSeries.this);
+//        final ProgressDialog progressDialog = new ProgressDialog(QuestionTestSeries.this);
 //        progressDialog.setTitle(getResources().getString(R.string.text_logging_in));
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+        layout_Progress.setVisibility(View.VISIBLE);
+
         Call<ReponseQuestionBank> scheduleListingCall = ApiClient.getClient().create(ApiInterface.class).addAnswerOfQuestion(
                 "application/x-www-form-urlencoded",
                 "addAnswerOfQuestion",
@@ -217,7 +220,8 @@ public class QuestionTestSeries extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ReponseQuestionBank>() {
             @Override
             public void onResponse(Call<ReponseQuestionBank> call, Response<ReponseQuestionBank> response) {
-                progressDialog.dismiss();
+//                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus() == 200) {
 //                    if (feedItemList.size()-1==i){
 //                        activity.finish();
@@ -231,7 +235,8 @@ public class QuestionTestSeries extends AppCompatActivity {
             @Override
             public void onFailure(Call<ReponseQuestionBank> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
+//                progressDialog.dismiss();
             }
         });
     }
@@ -260,11 +265,12 @@ public class QuestionTestSeries extends AppCompatActivity {
 
 
     private void getQuestionBank(String id) {
-        final ProgressDialog progressDialog = new ProgressDialog(QuestionTestSeries.this);
+//        final ProgressDialog progressDialog = new ProgressDialog(QuestionTestSeries.this);
 //        progressDialog.setTitle(getResources().getString(R.string.text_logging_in));
-        progressDialog.setMessage("Please Wait..");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+//        progressDialog.setMessage("Please Wait..");
+//        progressDialog.setCancelable(false);
+//        progressDialog.show();
+        layout_Progress.setVisibility(View.VISIBLE);
 
         SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         String client_id = sh.getString("client_id", "");
@@ -279,7 +285,8 @@ public class QuestionTestSeries extends AppCompatActivity {
         scheduleListingCall.enqueue(new Callback<ReponseQuestionBank>() {
             @Override
             public void onResponse(Call<ReponseQuestionBank> call, Response<ReponseQuestionBank> response) {
-                progressDialog.dismiss();
+//                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
                 if (response.body().getResponse().getStatus() == 200) {
                     questionlist.clear();
                     questionlist = response.body().getResponse().getResult();
@@ -294,7 +301,8 @@ public class QuestionTestSeries extends AppCompatActivity {
             @Override
             public void onFailure(Call<ReponseQuestionBank> call, Throwable t) {
                 Log.e("ScheduleListing", "onFailure: " + t.getMessage());
-                progressDialog.dismiss();
+                layout_Progress.setVisibility(View.GONE);
+//                progressDialog.dismiss();
             }
         });
     }
@@ -381,5 +389,3 @@ public class QuestionTestSeries extends AppCompatActivity {
 
     }
 }
-
-

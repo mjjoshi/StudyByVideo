@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -191,30 +190,22 @@ public class ReportsList extends AppCompatActivity {
         Context context;
         List<com.android.studybyvideo.model.ReportsList> scheduleListingList;
         List<com.android.studybyvideo.model.ReportsList> list;
-        FragmentManager fragmentManager;
 
         public ScheduleListingAdapter(Context context, List<com.android.studybyvideo.model.ReportsList> scheduleListingList) {
             this.context = context;
             this.scheduleListingList = scheduleListingList;
             this.list = scheduleListingList;
-
-
         }
 
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-            return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.report_list_item, parent, false));
+            return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.report_list_item1, parent, false));
         }
 
         @Override
         public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-            holder.txt_test_name.setText("" + scheduleListingList.get(position).getTest_name());
-
-            holder.txt_marks.setText(data.get(position).getMarkes());
-            holder.txt_per.setText(data.get(position).getPercentage());
 //            if (data.get(position).isSelected()){
 //                holder.isSelected.setVisibility(View.VISIBLE);
 //            }else {
@@ -233,6 +224,14 @@ public class ReportsList extends AppCompatActivity {
 //            });
 //            Picasso.with(context).load(data.get(position).getChapter_Image()).placeholder(R.drawable.img_default).into(holder.image);
 
+            holder.txt_skipped.setText(""+scheduleListingList.get(position).getSkipped_question_count());
+            holder.txt_attempt_count.setText(""+scheduleListingList.get(position).getCorrect_question_count());
+            holder.txt_score.setText(""+scheduleListingList.get(position).getPercentage());
+            holder.txt_marks.setText(""+scheduleListingList.get(position).getMarkes());
+            holder.txt_total_no_q.setText(""+scheduleListingList.get(position).getTotal_count());
+            holder.txt_wrong_count.setText(""+scheduleListingList.get(position).getNeg_mark_q_count());
+            holder.txt_test_name.setText(""+scheduleListingList.get(position).getTest_name());
+            holder.txt_Question_attemp.setText(""+scheduleListingList.get(position).getAttempted_count());
         }
 
         @Override
@@ -242,15 +241,24 @@ public class ReportsList extends AppCompatActivity {
 
 
         public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView txt_test_name, txt_marks, txt_per;
+            TextView txt_attempt_count,txt_test_name,txt_total_no_q,txt_score,txt_wrong_count, nextReports ,txt_Question_attemp , txt_marks,txt_skipped;
             LinearLayout llmain;
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 txt_test_name = itemView.findViewById(R.id.txt_test_name);
-                txt_marks = itemView.findViewById(R.id.txt_marks);
-                txt_per = itemView.findViewById(R.id.txt_per);
                 llmain = itemView.findViewById(R.id.llmain);
+
+                txt_attempt_count=itemView.findViewById(R.id.txt_attempt_count);
+                txt_total_no_q=itemView.findViewById(R.id.txt_total_no_q);
+                txt_test_name=itemView.findViewById(R.id.txt_test_name);
+                txt_score=itemView.findViewById(R.id.txt_score);
+                nextReports=itemView.findViewById(R.id.nextReports);
+                txt_wrong_count=itemView.findViewById(R.id.txt_wrong_count);
+
+                txt_Question_attemp=itemView.findViewById(R.id.txt_Question_attemp);
+                txt_marks=itemView.findViewById(R.id.txt_marks);
+                txt_skipped=itemView.findViewById(R.id.txt_skipped);
             }
         }
     }

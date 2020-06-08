@@ -1,7 +1,6 @@
 package com.android.studybyvideo;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +18,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.studybyvideo.ApiClient.ApiClient;
 import com.android.studybyvideo.ApiClient.ApiInterface;
 import com.android.studybyvideo.model.ResponseTestName;
@@ -28,13 +34,6 @@ import com.android.studybyvideo.model.TestTypeList;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -343,7 +342,7 @@ public class TestSeriesActivity extends AppCompatActivity {
         txt_total_no_q.setText("" + model.getNo_of_mcqs());
         txt_time.setText("" + model.getTime_for_the_test());
         txt_negative.setText("" + model.getNegative_marking());
-        txt_negative_marking_info.setText("( Negative Marking for Each Wrong Question" + model.getNegative_marks() + " )");
+        txt_negative_marking_info.setText("( Negative Marking for Each Wrong Question " + model.getNegative_marks() + " )");
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

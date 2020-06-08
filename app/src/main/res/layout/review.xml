@@ -6,13 +6,14 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:layout_above="@+id/next"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="?attr/actionBarSize"
             android:background="@drawable/gradient"
             android:orientation="vertical">
 
@@ -92,16 +93,23 @@
 
     </LinearLayout>
 
+    <include
+        android:id="@+id/layout_Progress"
+        layout="@layout/dilaog_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_5sdp"
-        app:cardElevation="@dimen/_5sdp">
+        android:layout_margin="@dimen/dimen_10dp"
+        app:cardCornerRadius="@dimen/dimen_5dp"
+        app:cardElevation="@dimen/dimen_5dp">
 
         <TextView
             android:id="@+id/nextTxt"
